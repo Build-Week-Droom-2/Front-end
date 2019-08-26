@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -19,15 +13,123 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Styling for user registration Form */
+.user-registration{
+  /* Full Component */
+  width: 500px;
+  margin: 20px auto;
+}
+.user-registration-top{ 
+  /* Area from title to avatar picture */
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+.ui.form.form-component p{
+  /* Error Message Styling */
+  color:red;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.ui.form.form-component label input{
+  /* text inputs */
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ui.form.form-component label textarea{
+  /* textarea inputs */
+  margin-bottom: 15px;
+  margin-top: 5px;
+  height: 100px;
+}
+
+
+
+/* Styling for Login Page */
+.loginFormDiv{
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid black;
+  min-height: 100vh;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginP{
+  margin-top: 30px;
+}
+
+.loginP p{
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 0 5px 0;
+
+}
+
+.loginForm input{
+  display:flex;
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+}
+.loginForm input[type="email"]{
+  margin-bottom: 15px;
+}
+
+
+.loginButton{
+  margin: 65px 0 0 40px;
+  display: block;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 70%;
+  height: 40px;
+  background:white;
+}
+
+
+/*UserCard Styling*/
+.userCard{
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+}
+.labels{
+  max-width: 90%;
+  margin: 20px 0;
+}
+.userP{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 3%;
+  margin: 15px 0;
+}
+.user-icons{
+  display:flex;
+  width:100%;
+  justify-content: space-between;
+  flex-grow: 0;
+}
+.match-number{
+  display:flex;
+  justify-content: left;
+  width:100%;
+  margin-left: 50px;
+  margin-top: -15px;
+}
+.match-number p{
+  background-color: green;
+  border-radius: 100%;
+  width:20px;
+  height:20px;
+  text-align: center;
+  color: pink;
 }
