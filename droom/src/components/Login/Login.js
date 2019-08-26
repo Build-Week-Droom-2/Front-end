@@ -59,6 +59,9 @@ const Login = props => {
           <a>Forgot your password?</a>
           <button className='loginButton' type='submit'>Sign in</button>
         </form>
+        <div className='loginLine'></div>
+        <p>Or</p>
+        <button className='extra'>Sign in with LinkedIn</button>
     </div>
   );
 };

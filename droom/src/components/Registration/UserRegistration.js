@@ -2,10 +2,22 @@ import React, {useState, useEffect} from 'react';
 import { Button, Checkbox, Form, Image, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import * as Yup from "yup";
+import axios from 'axios';
 
 const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
     const [user,setUser] = useState();
 
+    useEffect(() => {
+
+        if (status) {
+          setUser([status]);
+        }
+
+      }, [status]);
+
+      if (user) {
+        console.log(user);
+      }
     return(
         <div className="user-registration">
             <Button animated color="green">
@@ -90,7 +102,20 @@ const FormikLoginForm = withFormik({
   
     handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus }) {
         console.log("hi!");
+        //Check if email exists
 //axios post here
+axios
+        .post("https://reqres.in/api/users", values)
+        .then(res => {
+            // console.log(res.data);
+
+            const {name,zip,title,experience,education,skills} = res.data
+
+setSubmitting(false);
+
+setStatus({ name: name, zip: zip, title:title, experience:experience, education:education,skills:skills });
+          resetForm();
+        });
     }
   })(UserRegistration);
   

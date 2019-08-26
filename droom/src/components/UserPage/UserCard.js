@@ -8,10 +8,7 @@ function CardMaker(props){
             <div className="user-icons">
                 <div className="match-icon">
                 <Popup content='Check out your matches' trigger={<Button circular icon="star" />} />
-                
-                {/* <p>3</p> */} 
                 </div>
-               {/* To do: Add hover modal to tell what each button does */}
                <Popup content='Edit your profile' trigger={<Button circular icon="edit" />} />
             
             

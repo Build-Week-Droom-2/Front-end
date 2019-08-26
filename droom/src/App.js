@@ -4,6 +4,7 @@ import Login from './components/Login/Login'
 import PrivateRoute from './components/Login/PrivateRoute'
 import UserRegistration from './components/Registration/UserRegistration';
 import UserPage from './components/UserPage/UserPage';
+import CompanyRegistration from './components/Registration/CompanyRegistration';
 
 import './App.css';
 
@@ -13,8 +14,14 @@ function App() {
   return (
     <DroomData.Provider>
       <Router>
-        {/* <UserRegistration /> */}
+        
         <UserPage />
+        <br />
+        <br />
+        <br />
+        <br />
+        {/* <UserRegistration /> */}
+        <CompanyRegistration />
         <PrivateRoute exact path='/' component={Login}/>
        </Router>
     </DroomData.Provider>
