@@ -25,30 +25,25 @@ function EmployeeMatch(props){
             
             <label className='labels'>
                 <hr />
-            <p className="job-match-name">{props.exp}Job Title</p>
-            {/* <p className="job-match-location">{props.location}Location</p> */}
-            <hr />
+                <p className="job-match-name">{props.exp}Job Title</p>
+                <hr />
             </label>
             <div className="thumb-icons">
-            <Popup content='Click if not interested' trigger={<Button circular icon="thumbs down" color="red"/>} />
-            <Popup content='Click if interested' trigger={<Button circular icon="thumbs up" color="green"/>} />
+                <Popup content='Click if not interested' trigger={<Button circular icon="thumbs down" color="red"/>} />
+                <Popup content='Click if interested' trigger={<Button circular icon="thumbs up" color="green"/>} />
             </div>
             <label className='labels'>
                 <h3>Experience</h3>
-            <p className='exp userP'>{props.exp}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
+                <p className='exp userP'>{props.exp}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
             </label>
             <label className='labels'>
                 <h3>Education</h3>
-            <p className='edu userP'>{props.edu}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
+                <p className='edu userP'>{props.edu}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
             </label>
             <label className='labels'>
                 <h3>Skills</h3>
-            <p className='skills userP'>{props.skills}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
+                <p className='skills userP'>{props.skills}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
             </label>
-            {/* <div className="thumb-icons">
-            <Popup content='Click if not interested' trigger={<Button circular icon="thumbs down" color="red"/>} />
-            <Popup content='Click if interested' trigger={<Button circular icon="thumbs up" color="green"/>} />
-            </div> */}
         </div>
     );
 }

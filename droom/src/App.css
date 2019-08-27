@@ -12,6 +12,33 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* Job styling */
+.single-job{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 60%;
+  margin: 30px auto;
+}
+/* Job Listing Styling */
+.new-job-btn{
+  margin: 20px auto !important;
+  display:flex;
+  justify-content: center;
+  display: flex !important;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.job-listing{
+  max-width: 500px;
+  margin: 20px auto;
+}
+.job-listing p{
+  text-align: center;
+}
 /* Job Matches Page Styling */
 .job-matches{
   max-width: 500px;
@@ -198,7 +225,10 @@
 }
 
 /* User Registration Styling */
-
+.user-registration{
+  max-width: 500px;
+  margin: 20px auto;
+}
 .user-registration-top{ 
   /* Area from title to avatar picture */
   display:flex;
