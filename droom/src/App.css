@@ -12,7 +12,47 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* Job Posting Styling */
+.job-posting{
+  width:500px;
+  margin:20px auto;
+}
 
+/* General Registration Splash Page Styling */
+
+.general-registration-splash{
+  width:500px;
+  margin:20px auto;
+  text-align: center;
+}
+.balloon-top-row{
+  font-size:25px;
+  display:flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.balloon-bottom-row{
+  font-size:25px;
+  margin-bottom: 50px;
+}
+.general-registration-splash-name{
+  margin-bottom: 30px;
+}
+.general-registration-splash-question{
+  margin-bottom: 50px;
+}
+
+/* General Registration Form Styling */
+.general-registration{
+  width:500px;
+  margin: 20px auto;
+}
+.general-registration-top{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* Splash Page Styling */
 .splash-page{
   width:500px;

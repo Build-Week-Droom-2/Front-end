@@ -4,8 +4,11 @@ import Login from './components/Login/Login'
 import PrivateRoute from './components/Login/PrivateRoute'
 import UserRegistration from './components/Registration/UserRegistration';
 import UserPage from './components/UserPage/UserPage';
-import CompanyRegistration from './components/Registration/CompanyRegistration';
+import JobPage from './components/JobProfile/JobPage';
+import JobPosting from './components/Registration/JobPosting';
 import SplashPage from './components/SplashPage/SplashPage';
+import GeneralRegistration from './components/Registration/GeneralRegistration';
+import GeneralRegistrationSplash from './components/Registration/GeneralRegistrationSplash';
 
 import './App.css';
 
@@ -16,17 +19,14 @@ function App() {
     <DroomData.Provider>
       <Router>
         
-        <UserPage />
-        
-        {/* <UserRegistration /> */}
-        {/* <CompanyRegistration /> */}
-        {/* <SplashPage /> */}
+        <JobPage />
+
         <br />
         <br />
         <br />
         <br />
         <br />
-        
+        <JobPosting />
         <PrivateRoute exact path='/' component={Login}/>
        </Router>
     </DroomData.Provider>

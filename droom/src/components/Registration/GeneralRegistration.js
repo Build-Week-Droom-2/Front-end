@@ -18,7 +18,7 @@ const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
   }
 
   return(
-    <div className="user-registration">
+    <div className="general-registration">
         <Button animated color="green">
           <Button.Content visible>Back</Button.Content>
           <Button.Content hidden>
@@ -26,11 +26,9 @@ const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
           </Button.Content>
         </Button>
 
-        <div className="user-registration-top">
+        <div className="general-registration-top">
           <h1>The wait is over</h1>
           <p>Discover your dream job today</p>
-          {/* <p>Let's get started on filling out your bio...</p> */}
-          <Image src='https://picsum.photos/200' size='small' circular className="user-registration-avatar"/>
         </div>
 
         <Form className="form-component">
@@ -40,19 +38,19 @@ const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
             <Field component="input" type="text" name="name" placeholder="Name" />
           </label>
 
-          {touched.zip && errors.zip && <p>{errors.zip}</p>}
+          {touched.email && errors.email && <p>{errors.email}</p>}
           <label>Email
             <Field type="text" name="email" placeholder="Email" />
           </label>
 
-          {touched.title && errors.title && <p>{errors.title}</p>}
+          {touched.password && errors.password && <p>{errors.password}</p>}
           <label>Password
             <Field type="password" name="password" placeholder="Password" />
           </label>
 
-          {touched.experience && errors.experience && <p>{errors.experience}</p>}
+          {touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
           <label>Confirm Password
-            <Field name="confirm" component="password" placeholder="Confirm Password" />
+            <Field name="confirm" type="password" placeholder="Confirm Password" />
           </label>
 
           <Button type='submit' color="blue" onClick={handleSubmit}>Create Account</Button>
@@ -65,28 +63,25 @@ const FormikLoginForm = withFormik({
   mapPropsToValues({ name, email, password, confirm }) {
     return {
       name: name || "",
-      zip: zip || "",
-      title: title || "",
-      experience: experience || "",
-      education: education || "",
-      skills: skills || ""
+      email: email || "",
+      password: password || "",
+      confirm: confirm || ""
     };
   },
   
   //======VALIDATION SCHEMA==========
   validationSchema: Yup.object().shape({
     name: Yup.string()
-      .required("Name Required"),
-    zip: Yup.string()
-      .required("Zip Code Required"),
-    title: Yup.string()
-      .required("Job Title Required"),
-      experience: Yup.string()
-      .required("Experience Information Required"),
-      education: Yup.string()
-      .required("Education Information Required"),
-      skills: Yup.string()
-      .required("Skills Information Required"),
+        .required("Name Required"),
+    email: Yup.string()
+        .email()
+        .required("Email Required"),
+    password: Yup.string()
+        .min(8, 'Password needs to be 8 characters minimum')
+        .required("Password Required"),
+    confirm: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required("You must confirm your password")
   }),
   //======END VALIDATION SCHEMA==========
   
@@ -97,9 +92,9 @@ const FormikLoginForm = withFormik({
     axios
       .post("https://reqres.in/api/users", values)
       .then(res => {
-        const {name,zip,title,experience,education,skills} = res.data
+        const {name,email,password,confirm} = res.data
         setSubmitting(false);
-        setStatus({ name: name, zip: zip, title:title, experience:experience, education:education,skills:skills });
+        setStatus({ name: name, email: email, password:password, confirm:confirm });
         resetForm();
       });
   }

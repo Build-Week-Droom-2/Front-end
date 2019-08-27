@@ -20,9 +20,9 @@ function CardMaker(props){
                 {/* Toss in props to this number. Props = matches.length */}
             </div>
 
-            <h1 className='userName'>{props.name}Ian Sanchez</h1>
+            <h1 className='userName'>{props.name}McDonalds</h1>
             <Image src='https://picsum.photos/200' size='small' circular className="user-image"/>
-            <h2 className='userJob'>{props.title}Fullstack Web Developer</h2>
+            <h2 className='userJob'>{props.title}Frycook</h2>
             
             <label className='labels'>
                 <h3>Experience</h3>
