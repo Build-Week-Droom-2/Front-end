@@ -16,10 +16,10 @@ function App() {
     <DroomData.Provider>
       <Router>
         
-        {/* <JobPage /> */}
+        <JobPage />
         <br></br>
         {/* <UserRegistrationSplash /> */}
-        <WelcomeBack />
+        {/* <WelcomeBack /> */}
         <PrivateRoute exact path='/' component={Login}/>
        </Router>
     </DroomData.Provider>
