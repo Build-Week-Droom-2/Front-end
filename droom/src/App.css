@@ -30,9 +30,7 @@
 .thumb-icons{
   display:flex;
   justify-content: space-between;
-  /* border: 1px solid red; */
-  width:90%;
-  /* color:red; */
+  width:80%;
 }
 
 /* Welcome Back Page Styling */

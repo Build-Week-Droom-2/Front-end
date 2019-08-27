@@ -10,7 +10,8 @@ import JobPage from './components/JobProfile/JobPage';
 import UserRegistrationSplash from './components/Registration/UserRegistrationSplash';
 import GeneralRegistration from './components/Registration/GeneralRegistration'
 import WelcomeBack from './components/Login/WelcomeBack';
-import JobMatch from './components/Matches/JobMatch';
+// import EmployeeMatch from './components/Matches/EmployeeMatch';
+// import JobMatch from './components/Matches/JobMatch';
 
 import './App.css';
 
@@ -26,7 +27,8 @@ function App() {
         {/* <UserRegistration /> */}
         {/* <CompanyRegistration /> */}
         <SplashPage />
-        <JobMatch />
+        {/* <JobMatch /> */}
+        {/* <EmployeeMatch /> */}
         {/* <Link to='/login'>Login</Link> */}
         <Route path='/login' component={Login}/>
         {/* <PrivateRoute exact path='/' component={} /> */}
