@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Icon, Button, Popup } from 'semantic-ui-react';
+import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 
 function CardMaker(props){
     return(
@@ -7,22 +7,23 @@ function CardMaker(props){
             
             <div className="user-icons">
                 <div className="match-icon">
-                <Popup content='Check out your matches' trigger={<Button circular icon="star" />} />
+                    <Popup content='View your matches' trigger={<Button circular icon="star" />} />
                 </div>
-               <Popup content='Edit your profile' trigger={<Button circular icon="edit" />} />
-            
-            
-            <Popup content='Search for more employers' trigger={<Button circular icon="search plus" />} />
-            {/* Issues: Bottom part of circular button doesn't register as button when hovering */}
+
+                <Popup content='Edit your profile' trigger={<Button circular icon="edit" />} />
+                <Popup content='Search for jobs' trigger={<Button circular icon="search plus" />} />
+                {/* Issues: Bottom part of circular button doesn't register as button when hovering */}
             </div>
+
             <div className='match-number'>
-                    <p>12</p>
-                    {/* Potential Issues: Number covers the buttons slightly.  */}
-                    {/* Toss in props to this number. Props = matches.length */}
-                    </div>
+                <Popup content='View your matches' trigger={<Label as='a' circular color="pink">11</Label>} />
+                {/* Toss in props to this number. Props = matches.length */}
+            </div>
+
             <h1 className='userName'>{props.name}Ian Sanchez</h1>
             <Image src='https://picsum.photos/200' size='small' circular className="user-image"/>
             <h2 className='userJob'>{props.title}Fullstack Web Developer</h2>
+            
             <label className='labels'>
                 <h3>Experience</h3>
             <p className='exp userP'>{props.exp}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>

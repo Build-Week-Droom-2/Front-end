@@ -37,13 +37,13 @@ const Login = props => {
         <p>career dreams,</p> 
         <p>delivered.</p>
       </div>
-        <form className='loginForm' onSubmit={login}>
+        <form className='logiForm' onSubmit={login}>
           <label>
             Email
             <input
               type="email"
               name="email"
-              value={user.credentials.username}
+              value={user.credentials.email}
               onChange={handleChange}
             />
           </label>  

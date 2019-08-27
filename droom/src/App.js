@@ -5,6 +5,7 @@ import PrivateRoute from './components/Login/PrivateRoute'
 import UserRegistration from './components/Registration/UserRegistration';
 import UserPage from './components/UserPage/UserPage';
 import CompanyRegistration from './components/Registration/CompanyRegistration';
+import SplashPage from './components/SplashPage/SplashPage';
 
 import './App.css';
 
@@ -16,12 +17,16 @@ function App() {
       <Router>
         
         <UserPage />
-        <br />
-        <br />
-        <br />
-        <br />
+        
         {/* <UserRegistration /> */}
-        <CompanyRegistration />
+        {/* <CompanyRegistration /> */}
+        {/* <SplashPage /> */}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
         <PrivateRoute exact path='/' component={Login}/>
        </Router>
     </DroomData.Provider>
