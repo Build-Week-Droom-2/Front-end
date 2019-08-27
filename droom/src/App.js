@@ -1,11 +1,15 @@
 import React, {useState, createContext} from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Login from './components/Login/Login'
 import PrivateRoute from './components/Login/PrivateRoute'
-import UserRegistration from './components/Registration/UserRegistration';
+
+//imported components
+import SplashPage from './components/SplashPage/SplashPage'
+import Login from './components/Login/Login'
 import UserPage from './components/UserPage/UserPage';
-import CompanyRegistration from './components/Registration/CompanyRegistration';
-import SplashPage from './components/SplashPage/SplashPage';
+import JobPage from './components/JobProfile/JobPage';
+import UserRegistrationSplash from './components/Registration/UserRegistrationSplash';
+import GeneralRegistration from './components/Registration/GeneralRegistration'
+import WelcomeBack from './components/Login/WelcomeBack';
 
 import './App.css';
 
@@ -16,18 +20,15 @@ function App() {
     <DroomData.Provider>
       <Router>
         
-        <UserPage />
+        {/* <UserPage /> */}
         
         {/* <UserRegistration /> */}
         {/* <CompanyRegistration /> */}
-        {/* <SplashPage /> */}
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        
-        <PrivateRoute exact path='/' component={Login}/>
+        <SplashPage />
+        {/* <Link to='/login'>Login</Link> */}
+        <Route path='/login' component={Login}/>
+        {/* <PrivateRoute exact path='/' component={} /> */}
+        <Route path='/register' component={WelcomeBack} />
        </Router>
     </DroomData.Provider>
   );

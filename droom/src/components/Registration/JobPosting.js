@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Button, Checkbox, Form, Image, Icon } from 'semantic-ui-react';
+import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
@@ -19,84 +19,85 @@ const CompanyRegistration = ({errors,touched,values,status, handleSubmit}) => {
     }
 
   return(
-    <div className="user-registration">
+    <div className="job-posting">
         <Button animated color="green">
           <Button.Content visible>Back</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>
         </Button>
-        <div className="user-registration-top">
-          <h1>So you're looking to hire?</h1>
-          <p>You've come to the right place</p>
-          <p>Let's fill out your bio and add your first job opening...</p>
-          <Image src='https://picsum.photos/200' size='small' circular className="user-registration-avatar"/>
+        <div className="job-posting-top">
+          <h1>New Job Posting</h1>
+          
         </div>
 
         <Form className="form-component">
 
-          {touched.name && errors.name && <p>{errors.name}</p>}
-          <label>Name
-          < Field component="input" type="text" name="name" placeholder="Name" />
-          </label>
-
-          {touched.zip && errors.zip && <p>{errors.zip}</p>}
-          <label>Zip Code
-            <Field type="text" name="zip" placeholder="Zip Code" />
-          </label>
-
-          {touched.title && errors.title && <p>{errors.title}</p>}
+        {touched.title && errors.title && <p>{errors.title}</p>}
           <label>Title
             <Field type="text" name="title" placeholder="Title" />
           </label>
 
+          {touched.location && errors.location && <p>{errors.location}</p>}
+          <label>Location
+          < Field component="input" type="text" name="location" placeholder="Location" />
+          </label>
+
           {touched.experience && errors.experience && <p>{errors.experience}</p>}
-          <label>Experience
+          <label>Experience Desired
             <Field name="experience" component="textarea" placeholder="Experience" />
           </label>
 
           {touched.education && errors.education && <p>{errors.education}</p>}
-          <label>Education
+          <label>Education Desired
             <Field name="education" component="textarea" placeholder="Education" />
           </label>
 
           {touched.skills && errors.skills && <p>{errors.skills}</p>}
-          <label>Skills
+          <label>Skills Desired
             <Field name="skills" component="textarea" placeholder="Skills" />
           </label>
 
-          <Button type='submit' color="blue" onClick={handleSubmit}>Share with employers</Button>
+          {touched.workplacevalues && errors.workplacevalues && <p>{errors.workplacevalues}</p>}
+          <label>Workplace Values
+            <Field name="workplacevalues" component="textarea" placeholder="Workplace Values" />
+          </label>
+
+          <Button type='submit' color="blue" onClick={handleSubmit}>Post New Job</Button>
         </Form>
     </div>
   )
 }
 
 const FormikLoginForm = withFormik({
-  mapPropsToValues({ name, zip, title, experience, education, skills }) {
+  mapPropsToValues({ title, location, experience, education, skills, workplacevalues }) {
     return {
-      name: name || "",
-      zip: zip || "",
       title: title || "",
+      location: location || "",
+      // title: title || "",
       experience: experience || "",
       education: education || "",
-      skills: skills || ""
+      skills: skills || "",
+      workplacevalues: workplacevalues || ""
     };
   },
   
   //======VALIDATION SCHEMA==========
   validationSchema: Yup.object().shape({
-    name: Yup.string()
-      .required("Name Required"),
-    zip: Yup.string()
-      .required("Zip Code Required"),
     title: Yup.string()
       .required("Job Title Required"),
+    location: Yup.string()
+      .required("Location Required"),
+    // title: Yup.string()
+    //   .required("Job Title Required"),
       experience: Yup.string()
       .required("Experience Information Required"),
       education: Yup.string()
       .required("Education Information Required"),
       skills: Yup.string()
       .required("Skills Information Required"),
+      workplacevalues: Yup.string()
+      .required("Workplace Values Required"),
   }),
   //======END VALIDATION SCHEMA==========
 
