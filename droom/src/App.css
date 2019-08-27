@@ -12,6 +12,29 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* Job Matches Page Styling */
+.job-matches{
+  max-width: 500px;
+  margin:20px auto;
+}
+.match-user-image{
+  margin-top: 40px;
+}
+.job-match-name{
+  text-align: center;
+}
+.job-match-location{
+  text-align: center;
+}
+
+.thumb-icons{
+  display:flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  width:90%;
+  /* color:red; */
+}
+
 /* Welcome Back Page Styling */
 
 .welcome-back{
