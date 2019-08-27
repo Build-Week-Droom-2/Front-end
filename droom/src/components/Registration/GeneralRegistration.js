@@ -4,19 +4,18 @@ import {Field, withFormik} from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
 
-const CompanyRegistration = ({errors,touched,values,status, handleSubmit}) => {
+const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
   const [user,setUser] = useState();
 
   useEffect(() => {
-
       if (status) {
         setUser([status]);
       }
     }, [status]);
 
-    if (user) {
-      console.log(user);
-    }
+  if (user) {
+    console.log(user);
+  }
 
   return(
     <div className="user-registration">
@@ -26,53 +25,44 @@ const CompanyRegistration = ({errors,touched,values,status, handleSubmit}) => {
             <Icon name='arrow left' />
           </Button.Content>
         </Button>
+
         <div className="user-registration-top">
-          <h1>So you're looking to hire?</h1>
-          <p>You've come to the right place</p>
-          <p>Let's fill out your bio and add your first job opening...</p>
+          <h1>The wait is over</h1>
+          <p>Discover your dream job today</p>
+          {/* <p>Let's get started on filling out your bio...</p> */}
           <Image src='https://picsum.photos/200' size='small' circular className="user-registration-avatar"/>
         </div>
 
         <Form className="form-component">
 
           {touched.name && errors.name && <p>{errors.name}</p>}
-          <label>Name
-          < Field component="input" type="text" name="name" placeholder="Name" />
+          <label>Full Name
+            <Field component="input" type="text" name="name" placeholder="Name" />
           </label>
 
           {touched.zip && errors.zip && <p>{errors.zip}</p>}
-          <label>Zip Code
-            <Field type="text" name="zip" placeholder="Zip Code" />
+          <label>Email
+            <Field type="text" name="email" placeholder="Email" />
           </label>
 
           {touched.title && errors.title && <p>{errors.title}</p>}
-          <label>Title
-            <Field type="text" name="title" placeholder="Title" />
+          <label>Password
+            <Field type="password" name="password" placeholder="Password" />
           </label>
 
           {touched.experience && errors.experience && <p>{errors.experience}</p>}
-          <label>Experience
-            <Field name="experience" component="textarea" placeholder="Experience" />
+          <label>Confirm Password
+            <Field name="confirm" component="password" placeholder="Confirm Password" />
           </label>
 
-          {touched.education && errors.education && <p>{errors.education}</p>}
-          <label>Education
-            <Field name="education" component="textarea" placeholder="Education" />
-          </label>
-
-          {touched.skills && errors.skills && <p>{errors.skills}</p>}
-          <label>Skills
-            <Field name="skills" component="textarea" placeholder="Skills" />
-          </label>
-
-          <Button type='submit' color="blue" onClick={handleSubmit}>Share with employers</Button>
+          <Button type='submit' color="blue" onClick={handleSubmit}>Create Account</Button>
         </Form>
     </div>
   )
 }
 
 const FormikLoginForm = withFormik({
-  mapPropsToValues({ name, zip, title, experience, education, skills }) {
+  mapPropsToValues({ name, email, password, confirm }) {
     return {
       name: name || "",
       zip: zip || "",
@@ -99,9 +89,9 @@ const FormikLoginForm = withFormik({
       .required("Skills Information Required"),
   }),
   //======END VALIDATION SCHEMA==========
-
+  
   handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus }) {
-    console.log("hi!");
+    console.log("Submit function running");
     //Check if email exists
     //axios post here
     axios
@@ -113,6 +103,6 @@ const FormikLoginForm = withFormik({
         resetForm();
       });
   }
-})(CompanyRegistration);
-  
+})(GeneralRegistration);
+
 export default FormikLoginForm;

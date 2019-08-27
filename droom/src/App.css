@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -19,15 +13,213 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Splash Page Styling */
+.splash-page{
+  width:500px;
+  margin: 40px auto;
+  text-align: center;
+}
+.splash-row-segment-one{
+  z-index: -10 !important;
+}
+.splash-row-one{
+  margin-left: -290px !important;
+  margin-bottom: -92px !important;
+  z-index: 999 !important;
+  background-color: #f5f5f5;
+  font-size: 25px !important;
+}
+.splash-row-segment-two{
+  z-index: -10 !important;
+}
+.splash-row-two{
+
+  margin-right: -290px !important;
+  margin-bottom: -92px !important;
+
+  z-index: 999 !important;
+  background-color: #f5f5f5;
+  font-size: 25px !important;
+}
+.splash-row-segment-three{
+  z-index: -10 !important;
+}
+.splash-row-three{
+  margin-left: -290px !important;
+  margin-bottom: -92px !important;
+  z-index: 999 !important;
+  background-color: #f5f5f5;
+  font-size: 25px !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.splash-page .ui.segment{
+  width: 300px;
+  margin: 14px auto;
+  display:flex;
+  justify-content: center;
+}
+
+.splash-page .ui.segment .icon{
+ margin-left: 20px;
+ margin-right: 20px;
+}
+
+.splash-page-top{
+  text-align: center;
+}
+.splash-page button{
+  /* Sign in/Sign up buttons */
+  width: 100px !important;
+  margin-top: 20px !important;
+}
+
+/* User Registration Styling */
+
+.user-registration-top{ 
+  /* Area from title to avatar picture */
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+.ui.form.form-component p{
+  /* Error Message Styling */
+  color:red;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.ui.form.form-component label input{
+  /* text inputs */
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.ui.form.form-component label textarea{
+  /* textarea inputs */
+  margin-bottom: 15px;
+  margin-top: 5px;
+  height: 100px;
+}
+
+
+
+/* Styling for Log   */
+.loginFormDiv{
+  /* margin: 0 auto; */
+  margin-top: 50px;
+  border: 1px solid black;
+  min-height: 100vh;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginP{
+  margin-top: 30px;
+}
+
+.loginP p{
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 0 5px 0;
+
+}
+
+.loginForm input{
+  display:flex;
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #f5f5f5;
+  background: white;
+}
+.loginForm input[type="email"]{
+  margin-bottom: 15px;
+}
+.loginForm input:focus{
+  border: 1px solid #5c1fd6;
+  background:white;
+}
+.loginForm a{
+  color: #5c1fd6;
+  text-decoration: underline;
+  text-decoration-color: #D9CAF7;
+}
+
+.loginButton{
+  margin: 65px 0 0 40px;
+  display: block;
+  border: 1px solid #D9CAF7;
+  border-radius: 5px;
+  width: 70%;
+  height: 40px;
+  background:white;
+  cursor: pointer;
+}
+.loginButton:hover{
+  background: #5c1fd6;
+  color: white;
+}
+.extra {
+  width: 36%;
+  height: 30px;
+  border: 1px solid #D9CAF7;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.extra:hover{
+  background: #5c1fd6;
+  color: white;
+}
+
+.loginLine{
+  width: 250px;
+  margin-top: 15px;
+  border-top: 1px solid #f2eefc;
+  height: 1px;
+}
+
+
+/*UserCard Styling thing and thing*/
+.userCard{
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+}
+.labels{
+  max-width: 90%;
+  margin: 20px 0;
+}
+.userP{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 3%;
+  margin: 15px 0;
+}
+.user-icons{
+  display:flex;
+  width:100%;
+  justify-content: space-between;
+  flex-grow: 0;
+}
+.match-number{
+  display:flex;
+  justify-content: left;
+  width:100%;
+  margin-left: 50px;
+  margin-top: -15px;
+}
+.match-number p{
+  background-color: green;
+  border-radius: 100%;
+  width:20px;
+  height:20px;
+  text-align: center;
+  color: pink;
 }
