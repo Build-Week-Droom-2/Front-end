@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-// import { axios } from 'axios';
 import axios from 'axios';
-import CardMaker from './UserCard.js';
+import CardMaker from './JobCard.js';
 
-function UserPage(){
+function JobPage(){
     const [data, setData] = useState({});
     useEffect(() => {
         axios.get('')
@@ -17,11 +16,6 @@ function UserPage(){
             </div>
         )
 }
-
-export default UserPage;
-/* how this will work
-display name and stuff
-have button that goes to matches
-have button to edit
-have button to sign out 
-*/
+export default JobPage;
+/* comment
+comment*/
