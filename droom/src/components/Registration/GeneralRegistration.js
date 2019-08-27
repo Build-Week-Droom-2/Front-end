@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Button, Checkbox, Form, Image, Icon } from 'semantic-ui-react';
+import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';

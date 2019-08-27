@@ -12,10 +12,73 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* Welcome Back Page Styling */
+
+.welcome-back{
+  width:500px;
+  margin: 50px auto;
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;  
+}
+.welcome-back h1{
+  margin-bottom: 40px;
+}
+.loader{
+  margin-top: 50px !important;
+}
+/* User Registration Confirmation/Splash page Styling */
+.hand-top-row{
+  margin-top: 40px;
+  font-size: 25px;
+}
+.hand-bottom-row{
+  font-size: 25px;
+  display:flex;
+  justify-content: space-around;
+}
+.user-registration-splash{
+  width:500px;
+  margin: 20px auto;
+  border: 1px solid red;
+  text-align: center;
+
+}
+
+.user-registration-splash h1{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.user-registration-splash h2{
+  margin-bottom: 40px;
+}
+.user-registration-splash p{
+  margin-bottom: 40px;
+}
+/* Recruiter Registration Styling */
+
+.recruiter-registration{
+  width:500px;
+  margin: 20px auto;
+}
+
+.recruiter-registration-top{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 /* Job Posting Styling */
 .job-posting{
   width:500px;
   margin:20px auto;
+}
+
+.job-posting-top{
+  text-align: center;
 }
 
 /* General Registration Splash Page Styling */
