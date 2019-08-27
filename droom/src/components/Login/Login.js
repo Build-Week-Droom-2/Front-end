@@ -1,33 +1,33 @@
 import React, {useState} from "react";
-import { Router, Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, Route } from 'react-router-dom';
+import {axiosWithAuth} from '../utils/axiosWithAuth.js';
+import axios from 'axios'
 
 const Login = props => {
  
   const [user, setUser] = useState({
-    credentials : {
       email: '',
       password: ''
-    }
+    
   })
 
   const handleChange = e => {
     setUser({
-      credentials: {
-        ...user.credentials,
+      ...user,
         [e.target.name]: e.target.value
-      }
     });
   };
 
   const login = e => {
     e.preventDefault();
-    // axios.post('here is the url for the back-end', user.credentials)
-    //   .then(res => {
-    //     localStorage.setItem('token', res.data.payload)
-    //     props.history.push('/protected')
-    //   })
-    //   .catch(err => console.log(err.response))
+    axios
+      .post('https://droom-app.herokuapp.com/api/droom/login', user)
+      .then(res => {
+        // localStorage.setItem('token', res.data.payload)
+        // props.history.push('/protected')
+        console.log('login page',res)
+      })
+      .catch(err => console.log('err in catch',err.response))
   }
 
   return (
@@ -37,13 +37,13 @@ const Login = props => {
         <p>career dreams,</p> 
         <p>delivered.</p>
       </div>
-        <form className='logiForm' onSubmit={login}>
+        <form className='loginForm' onSubmit={login}>
           <label>
             Email
             <input
               type="email"
               name="email"
-              value={user.credentials.email}
+              value={user.email}
               onChange={handleChange}
             />
           </label>  
@@ -52,7 +52,7 @@ const Login = props => {
             <input
               type="password"
               name="password"
-              value={user.credentials.password}
+              value={user.password}
               onChange={handleChange}
             />
           </label>

@@ -64,7 +64,6 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
           <label>Skills
             <Field name="skills" component="textarea" placeholder="Skills" />
           </label>
-
           <Button type='submit' color="blue" onClick={handleSubmit}>Share with employers</Button>
         </Form>
     </div>

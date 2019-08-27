@@ -105,82 +105,83 @@
 
 
 /* Styling for Log   */
-.loginFormDiv{
-  /* margin: 0 auto; */
-  margin-top: 50px;
-  border: 1px solid black;
-  min-height: 100vh;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/* @media(min-width: 480px){ */
+  .loginFormDiv{
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .loginP{
+    margin-top: 30px;
+  }
+  .loginP p{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 0 5px 0;
+  
+  }
+  
+  .loginForm input{
+    display:flex;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #f5f5f5;
+    background: white;
+  }
+  .loginForm input[type="email"]{
+    margin-bottom: 15px;
+  }
+  .loginForm input:focus{
+    border: 1px solid #5c1fd6;
+    background:white;
+  }
+  .loginForm a{
+    color: #5c1fd6;
+    text-decoration: underline;
+    text-decoration-color: #D9CAF7;
+  }
+  
+  .loginButton{
+    margin: 65px 0 0 40px;
+    display: block;
+    border: 1px solid #D9CAF7;
+    border-radius: 5px;
+    width: 70%;
+    height: 40px;
+    background:white;
+    cursor: pointer;
+  }
+  .loginButton:hover{
+    background: #5c1fd6;
+    color: white;
+  }
+  .extra {
+    width: 45%;
+    height: 35px;
+    border: 1px solid #D9CAF7;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .extra:hover{
+    background: #5c1fd6;
+    color: white;
+  }
+  
+  .loginLine{
+    width: 250px;
+    margin-top: 15px;
+    border-top: 1px solid #f2eefc;
+    height: 1px;
+  }
 
-.loginP{
-  margin-top: 30px;
-}
 
-.loginP p{
-  font-weight: bold;
-  font-size: 18px;
-  margin: 0 0 5px 0;
-
-}
-
-.loginForm input{
-  display:flex;
-  width: 250px;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid #f5f5f5;
-  background: white;
-}
-.loginForm input[type="email"]{
-  margin-bottom: 15px;
-}
-.loginForm input:focus{
-  border: 1px solid #5c1fd6;
-  background:white;
-}
-.loginForm a{
-  color: #5c1fd6;
-  text-decoration: underline;
-  text-decoration-color: #D9CAF7;
-}
-
-.loginButton{
-  margin: 65px 0 0 40px;
-  display: block;
-  border: 1px solid #D9CAF7;
-  border-radius: 5px;
-  width: 70%;
-  height: 40px;
-  background:white;
-  cursor: pointer;
-}
-.loginButton:hover{
-  background: #5c1fd6;
-  color: white;
-}
-.extra {
-  width: 36%;
-  height: 30px;
-  border: 1px solid #D9CAF7;
-  background: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.extra:hover{
-  background: #5c1fd6;
-  color: white;
-}
-
-.loginLine{
-  width: 250px;
-  margin-top: 15px;
-  border-top: 1px solid #f2eefc;
-  height: 1px;
-}
 
 
 /*UserCard Styling thing and thing*/

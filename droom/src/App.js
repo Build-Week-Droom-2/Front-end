@@ -16,18 +16,15 @@ function App() {
     <DroomData.Provider>
       <Router>
         
-        <UserPage />
+        {/* <UserPage /> */}
         
         {/* <UserRegistration /> */}
         {/* <CompanyRegistration /> */}
         {/* <SplashPage /> */}
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        
-        <PrivateRoute exact path='/' component={Login}/>
+        <Link to='/login'>Login</Link>
+        <Route path='/login' component={Login}/>
+        {/* <PrivateRoute exact path='/' component={} /> */}
+        <Route path='/register' component={UserRegistration} />
        </Router>
     </DroomData.Provider>
   );
