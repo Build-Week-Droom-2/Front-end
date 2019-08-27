@@ -41,5 +41,5 @@ function CardMaker(props){
 }
 
 export default CardMaker;
-
+/*comment */
 
