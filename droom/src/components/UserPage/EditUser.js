@@ -32,9 +32,9 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
               </Button>
       
               <div className="user-registration-top">
-                <h1>So you're looking for a job?</h1>
-                <p>You've come to the right place</p>
-                <p>Let's get started on filling out your bio...</p>
+                <h1>Edit Profile</h1>
+                {/* <p>You've come to the right place</p>
+                <p>Let's get started on filling out your bio...</p> */}
                 <Image src='https://picsum.photos/200' size='small' circular className="user-registration-avatar"/>
               </div>
       
@@ -69,7 +69,7 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
                 <label>Skills
                   <Field name="skills" component="textarea" placeholder="Skills" />
                 </label>
-                <Button type='submit' color="blue" onClick={handleSubmit}>Share with employers</Button>
+                <Button type='submit' color="blue" onClick={handleSubmit}>Edit</Button>
               </Form>
           </div>
         </UserContext.Provider>

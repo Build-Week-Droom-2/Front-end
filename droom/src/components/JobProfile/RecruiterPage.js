@@ -12,24 +12,28 @@ export default class JobPage extends React.Component {
     }
     
 
-    componentDidMount() {
-        this.fetchPerson(this.props.match.params.id);
-    }
+    // componentDidMount() {
+    //     this.fetchPerson(this.props.match.params.id);
+    // }
 
-    componentWillReceiveProps(newProps) {
-        if(this.props.match.params.id !== newProps.match.params.id) {
-            this.fetchMovie(newProps.match.params.id);
-        }  
-    }
+    // componentWillReceiveProps(newProps) {
+    //     if(this.props.match.params.id !== newProps.match.params.id) {
+    //         this.fetchMovie(newProps.match.params.id);
+    //     }  
+    // }
 
-    fetchPerson = id => {
-        axios.get('userprofile')
-        .then(res => this.setState({person: res.data}))
-        .catch(err => console.log(err.response));
-    }
+    // fetchPerson = id => {
+    //     axios.get('userprofile')
+    //     .then(res => this.setState({person: res.data}))
+    //     .catch(err => console.log(err.response));
+    // }
     render() {
         
-        console.log("props", this.props);
+        // console.log("props", this.props);
+        // console.log(this.props.location.state);
+        const name = this.props.location.state.name;
+        const company = this.props.location.state.company;
+        const history = this.props.history;
         // // if(!this.state.pers {
         // console.log(this.state);
         //     return <div>Loading User Profile</div>
@@ -37,7 +41,7 @@ export default class JobPage extends React.Component {
 
         return(
             <div className='CardMaker'>
-                <CardMaker name={this.props.name} title={this.props.company}  />
+                <CardMaker name={name} title={company} history={history} />
                 <div className='update'>
                     {/* <Link to `/update-profile/${this.state.person.id}`>Edit</Link> */}
                 </div>

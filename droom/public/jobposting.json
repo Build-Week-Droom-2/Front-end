@@ -1,6 +1,8 @@
 {
     "posting":[{
+        "id": 1,
         "name":"Lambda Hospital",
+        "location": "33224",
         "title":"Medical Doctor (MD)",
         "exp": "A Minimum of 1 year of experience.",
         "edu": "Active Medical License Required",
@@ -10,7 +12,9 @@
 
     },
     {
+        "id": 2,
         "name":"Google",
+        "location": "33098",
         "title":"Software Engineer",
         "exp": "1-4 years’ experience in programming and/or software development; or equivalent combination of education and experience",
         "edu": "Bachelor's degree in computer science or related field",
@@ -21,7 +25,9 @@
 
     },
     {
+        "id": 3,
         "name":"SmallWonders",
+        "location": "33888",
         "title":"Early Childhood Assistant Teacher",
         "exp": "1 year of experience prefered",
         "edu": "High School Diploma required",

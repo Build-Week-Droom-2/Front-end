@@ -5,7 +5,14 @@ import { Link, withRouter } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
 
-const RecruiterRegistration = ({errors,touched,values,status, handleSubmit}) => {
+const RecruiterEdit = ({errors,touched,values,status, handleSubmit, history}) => {
+    
+    // console.log()
+    // console.log(name);
+    // console.log(company);
+    const {name, company} = history.location.state;
+    console.log(name, company);
+    console.log(history);
   const [user,setUser] = useState();
 
   useEffect(() => {
@@ -17,23 +24,22 @@ const RecruiterRegistration = ({errors,touched,values,status, handleSubmit}) => 
   if (user) {
 
 
-    user.history.push('/recruiter-page', {name: user.name, zip: user.zip, company:user.company});
+    user.history.push('/recruiter-page', {name: user.name, company:user.company});
   }
 
   return(
     <div className="recruiter-registration">
         <Link to='/'>
           <Button animated color="green">
-            <Button.Content visible>Back</Button.Content>
+            {/* <Button.Content visible>Back</Button.Content> */}
             <Button.Content hidden>
               <Icon name='arrow left' />
             </Button.Content>
           </Button>
         </Link>
         <div className="recruiter-registration-top">
-          <h1>So you're looking to hire?</h1>
-          <p>You've come to the right place</p>
-          <p>Let's fill out your bio and add your first job opening...</p>
+          <h1>Edit Profile</h1>
+
           <Image src='https://picsum.photos/200' size='small' circular className="user-registration-avatar"/>
         </div>
 
@@ -41,17 +47,12 @@ const RecruiterRegistration = ({errors,touched,values,status, handleSubmit}) => 
 
           {touched.name && errors.name && <p>{errors.name}</p>}
           <label>Name
-            <Field component="input" type="text" name="name" placeholder="Name" />
-          </label>
-
-          {touched.zip && errors.zip && <p>{errors.zip}</p>}
-          <label>Zip Code
-            <Field type="text" name="zip" placeholder="Zip Code" />
+            <Field component="input" type="text" name="name" placeholder={name}/>
           </label>
 
           {touched.company && errors.company && <p>{errors.company}</p>}
           <label>Company
-            <Field type="text" name="company" placeholder="Company" />
+            <Field type="text" name="company" placeholder={company} />
           </label>
 
           <Button type='submit' color="blue" onClick={handleSubmit}>Submit</Button>
@@ -64,7 +65,6 @@ const FormikLoginForm = withFormik({
   mapPropsToValues({ name, zip, company }) {
     return {
       name: name || "",
-      zip: zip || "",
       company: company || ""
     };
   },
@@ -73,8 +73,6 @@ const FormikLoginForm = withFormik({
   validationSchema: Yup.object().shape({
     name: Yup.string()
       .required("Name Required"),
-    zip: Yup.string()
-      .required("Zip Code Required"),
     company: Yup.string()
       .required("Company Required")
   }),
@@ -90,11 +88,11 @@ const FormikLoginForm = withFormik({
       .then(res => {
         const {name,zip,company} = res.data
         setSubmitting(false);
-        setStatus({ name: name, zip: zip, company:company, history:history });
+        setStatus({ name: name, company:company, history:history });
         resetForm();
       }, {...props});
   }
-})(RecruiterRegistration);
+})(RecruiterEdit);
 
 const RouterFormik = withRouter(FormikLoginForm)
 
