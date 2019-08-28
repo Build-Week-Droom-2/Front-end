@@ -2,6 +2,20 @@ import React from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 
 function JobMatch(props){
+    
+
+    useEffect(() => {
+        axios
+            .get("../usersData.json")
+            .then(response => {
+                setUserInfo(response.data.dataOne)
+            })
+            .catch(error => {
+                console.log("Error getting data", error)
+            })
+    }, [])
+
+
     return(
         <div className='userCard'>
             
