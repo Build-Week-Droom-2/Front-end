@@ -28,16 +28,17 @@ export default class UserPage extends React.Component {
     //     .catch(err => console.log(err.response));
     // }
     render() {
-        console.log('in user page',this.props)
+        console.log('in user page',this.props.location.state);
+        const {name, skills, title, experience, education} = this.props.location.state;
         // if(!this.state.person) {
         //     return <div>Loading User Profile</div>
         // }
 
         return(
             <div className='CardMaker'>
-                <CardMaker name={this.props.user.name} url={this.props.user.url} title={this.props.user.title} exp={this.props.user.experience} edu={this.props.user.education} skills={this.props.user.skills} />
+                <CardMaker name={name} title={title} exp={experience} edu={education} skills={skills} />
                 <div className='update'>
-                    <Link>Edit</Link>
+                    {/* <button>Edit</button> */}
                 </div>
             </div>
         );

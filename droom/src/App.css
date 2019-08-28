@@ -376,3 +376,9 @@
   text-align: center;
   color: pink;
 }
+.editingForm{
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}

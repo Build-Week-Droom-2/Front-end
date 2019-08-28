@@ -1,0 +1,23 @@
+{
+        "recruiters":[{
+            "name": "John Doe",
+            "zipcode":"33224",
+            "company": "Lambda Hospital"
+
+        },
+        {
+            "name": "Jane Doe",
+            "zipcode":"33098",
+            "company": "Google"
+
+        },
+        {
+            "name": "Johnny Appleseed",
+            "zipcode":"33888",
+            "company": "SmallWonders"
+
+        }
+
+    ]
+}
+       
