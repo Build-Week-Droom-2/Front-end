@@ -6,11 +6,13 @@ import * as Yup from "yup";
 import axios from 'axios';
 
 const RecruiterEdit = ({errors,touched,values,status, handleSubmit, history}) => {
-    console.log(values);
+    
     // console.log()
     // console.log(name);
     // console.log(company);
-    
+    const {name, company} = history.location.state;
+    console.log(name, company);
+    console.log(history);
   const [user,setUser] = useState();
 
   useEffect(() => {
@@ -45,12 +47,12 @@ const RecruiterEdit = ({errors,touched,values,status, handleSubmit, history}) =>
 
           {touched.name && errors.name && <p>{errors.name}</p>}
           <label>Name
-            <Field component="input" type="text" name="name" placeholder="Name" />
+            <Field component="input" type="text" name="name" placeholder={name}/>
           </label>
 
           {touched.company && errors.company && <p>{errors.company}</p>}
           <label>Company
-            <Field type="text" name="company" placeholder="Company"/>
+            <Field type="text" name="company" placeholder={company} />
           </label>
 
           <Button type='submit' color="blue" onClick={handleSubmit}>Submit</Button>

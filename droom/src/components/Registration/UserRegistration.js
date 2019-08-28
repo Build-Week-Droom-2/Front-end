@@ -117,6 +117,7 @@ const FormikLoginForm = withFormik({
       .post("https://reqres.in/api/users", values)
       .then(res => {
         const {name,zip,title,experience,education,skills} = res.data
+        console.log(res)
         setSubmitting(false);
         setStatus({ name: name, zip: zip, title:title, experience:experience, education:education,skills:skills, history: history });
         resetForm();

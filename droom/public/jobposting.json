@@ -1,5 +1,6 @@
 {
     "posting":[{
+        "id": 1,
         "name":"Lambda Hospital",
         "location": "33224",
         "title":"Medical Doctor (MD)",
@@ -11,6 +12,7 @@
 
     },
     {
+        "id": 2,
         "name":"Google",
         "location": "33098",
         "title":"Software Engineer",
@@ -23,6 +25,7 @@
 
     },
     {
+        "id": 3,
         "name":"SmallWonders",
         "location": "33888",
         "title":"Early Childhood Assistant Teacher",

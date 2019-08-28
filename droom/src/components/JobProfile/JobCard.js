@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 
 function CardMaker(props){
-console.log(props.name);
-console.log(props.title);
+// console.log(props.name);
+// console.log(props.title);
 
 const [nameState, setNameState] = useState();
 const [companyState, setCompanyState]=useState();
@@ -14,7 +14,7 @@ const [companyState, setCompanyState]=useState();
     }, [])
 
 const editJob = () => {
-    return props.history.push('/edit', {name: nameState, company: companyState});
+    return props.history.push('/edit-recruiter', {name: nameState, company: companyState});
 
 }
 

@@ -12,7 +12,7 @@ import GeneralRegistrationRecruiter from './components/Registration/GeneralRegis
 import UserRegistration from './components/Registration/UserRegistration';
 import UserPage from './components/UserPage/UserPage';
 import RecruiterPage from './components/JobProfile/RecruiterPage';
-import Edit from './components/UserPage/Edit';
+import EditRecruiter from './components/UserPage/EditRecruiter';
 
 
 import './App.css';
@@ -41,7 +41,7 @@ function App() {
           <Route exact path='/recruiter-register' component={RecruiterRegistration}/>
           <Route path='/user-register' component={UserRegistration}/>
           <Route path='/user-page' component={UserPage}/>
-          <Route path='/edit' component={Edit}/>
+          <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/recruiter-page' component={RecruiterPage}/>
        </Router>
     </DroomData.Provider>
