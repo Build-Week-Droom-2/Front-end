@@ -21,7 +21,7 @@ const Login = props => {
   const login = e => {
     e.preventDefault();
     axios
-      .post('https://droom-app.herokuapp.com/api/droom/login', user)
+      .post('https://droom-app.herokuapp.com/droom/login', user)
       .then(res => {
         // localStorage.setItem('token', res.data.payload)
         // props.history.push('/protected')

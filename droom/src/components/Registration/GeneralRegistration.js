@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
 
@@ -19,12 +20,12 @@ const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
 
   return(
     <div className="general-registration">
-        <Button animated color="green">
-          <Button.Content visible>Back</Button.Content>
+        <Link to='/'><Button animated color="green">
+          <Button.Content visible >Back</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>
-        </Button>
+        </Button></Link>
 
         <div className="general-registration-top">
           <h1>The wait is over</h1>

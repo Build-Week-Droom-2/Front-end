@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, Image, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
 
@@ -19,13 +20,14 @@ const RecruiterRegistration = ({errors,touched,values,status, handleSubmit}) => 
 
   return(
     <div className="recruiter-registration">
-        <Button animated color="green">
-          <Button.Content visible>Back</Button.Content>
-          <Button.Content hidden>
-            <Icon name='arrow left' />
-          </Button.Content>
-        </Button>
-
+        <Link to='/'>
+          <Button animated color="green">
+            <Button.Content visible>Back</Button.Content>
+            <Button.Content hidden>
+              <Icon name='arrow left' />
+            </Button.Content>
+          </Button>
+        </Link>
         <div className="recruiter-registration-top">
           <h1>So you're looking to hire?</h1>
           <p>You've come to the right place</p>

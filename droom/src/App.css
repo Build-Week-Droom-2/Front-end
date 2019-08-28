@@ -208,12 +208,10 @@
 
 
 /* Styling for Log   */
-/* @media(min-width: 480px){ */
   .loginFormDiv{
     max-width: 500px;
     margin: 0 auto;
     margin-top: 50px;
-    border: 1px solid black;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
