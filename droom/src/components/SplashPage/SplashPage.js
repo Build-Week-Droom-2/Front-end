@@ -22,25 +22,23 @@ const SplashPage = () => {
           </div>
 
           <div>
-           <Link to='/general-register'><Button color="blue">Sign Up</Button></Link>
-          </div>
-          {/* <Modal size="tiny" trigger>
-            <Header icon='user circle' content='Please choose wisely!' />
-            <Modal.Content>
-              <p>
-                  Are you looking for work or are you a job provider?
-              </p>
-            </Modal.Content>
-            <Modal.Actions>
-              <Link to='/job-seeker/register'><Button  color='green' inverted>
-                <Icon name='checkmark' /> Job Seeker
-              </Button></Link>
-              <Link to='/job-provider/register'><Button color='blue' inverted>
-                <Icon name='checkmark' /> Job Provider
-              </Button></Link>
-            </Modal.Actions>
-          </Modal> */}
-          
+            <Modal size="tiny" trigger={<Button color="blue">Sign Up</Button>}>
+              <Header icon='user circle' content='Please choose wisely!' />
+              <Modal.Content>
+                <p>
+                    Are you looking for work or are you a job provider?
+                </p>
+              </Modal.Content>
+              <Modal.Actions>
+                <Link to='/general-register/user'><Button  color='green' inverted>
+                  <Icon name='checkmark' /> Job Seeker
+                </Button></Link>
+                <Link to='/general-register/recruiter'><Button color='blue' inverted>
+                  <Icon name='checkmark' /> Job Provider
+                </Button></Link>
+              </Modal.Actions>
+            </Modal>
+           </div>
       </div>
   )
 }

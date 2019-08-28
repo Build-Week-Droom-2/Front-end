@@ -7,7 +7,12 @@ import SplashPage from './components/SplashPage/SplashPage'
 import Login from './components/Login/Login'
 import WelcomeBack from './components/Login/WelcomeBack';
 import RecruiterRegistration from './components/Registration/RecruiterRegistration'
-import GeneralRegistration from './components/Registration/GeneralRegistration'
+import GeneralRegistrationUser from './components/Registration/GeneralRegistrationUser'
+import GeneralRegistrationRecruiter from './components/Registration/GeneralRegistrationRecruiter'
+import UserRegistration from './components/Registration/UserRegistration';
+import UserPage from './components/UserPage/UserPage';
+import RecruiterPage from './components/JobProfile/RecruiterPage';
+
 
 import './App.css';
 
@@ -28,10 +33,14 @@ function App() {
         <Route exact path='/login' component={Login}/>
         {/* <PrivateRoute exact path='/' component={} /> */}
         {/* <Route path='/register'  component={GeneralRegistration} /> */}
-        <Route path='/general-register' render={props => (
-          <GeneralRegistration {...props}/>
+        <Route path='/general-register/user' render={props => (
+          <GeneralRegistrationUser {...props}/>
          )}/>
-         <Route path='/job-provider/register' component={RecruiterRegistration}/>
+         <Route path='/general-register/recruiter' component={GeneralRegistrationRecruiter}/>
+          <Route exact path='/recruiter-register' component={RecruiterRegistration}/>
+          <Route path='/user-register' component={UserRegistration}/>
+          <Route path='/user-page' component={UserPage}/>
+          <Route path='/recruiter-page' component={RecruiterPage}/>
        </Router>
     </DroomData.Provider>
   );

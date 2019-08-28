@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
 import GeneralRegistrationSplash from './GeneralRegistrationSplash';
@@ -33,8 +33,8 @@ const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
           </Button></Link>
   
           <div className="general-registration-top">
-            <h1>The wait is over</h1>
-            <p>Discover your dream job today</p>
+            <h1>This is a recruiter form</h1>
+            <p>Give them the best position</p>
           </div>
   
           <Form className="form-component">
@@ -76,7 +76,8 @@ const FormikLoginForm = withFormik({
       name: name || "",
       email: email || "",
       password: password || "",
-      confirm: confirm || ""
+      confirm: confirm || "",
+      account: 1
     };
   },
   
@@ -96,21 +97,23 @@ const FormikLoginForm = withFormik({
   }),
   //======END VALIDATION SCHEMA==========
   
-  handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus }) {
+  handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
     console.log('values in GR',values);
-    
+    const {history} = props;
     // console.log("Submit function running");
     //Check if email exists
     //axios post here
     axios
       .post("https://reqres.in/api/users", values)
       .then(res => {
-        const {name,email,password,confirm} = res.data
+        const {name,email,password,confirm, id} = res.data
         setSubmitting(false);
-        setStatus({ name: name, email: email, password:password, confirm:confirm });
+        setStatus({ name: name, email: email, password:password, confirm:confirm, account: 1, history: history, id:id });
         resetForm();
-      });
+      }, {...props});
   }
 })(GeneralRegistration);
+
+const RouterFormik = withRouter(FormikLoginForm)
 
 export default FormikLoginForm;

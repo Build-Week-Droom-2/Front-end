@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, Image, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
 
@@ -16,6 +16,9 @@ const RecruiterRegistration = ({errors,touched,values,status, handleSubmit}) => 
 
   if (user) {
     console.log(user);
+    console.log(user[0].history);
+    user[0].history.pushState(user, "", '/recruiter-page');
+    // name: user.name, zip: user.zip, company:user.company, 
   }
 
   return(
@@ -78,8 +81,9 @@ const FormikLoginForm = withFormik({
   }),
   //======END VALIDATION SCHEMA==========
   
-  handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus }) {
-    console.log("Submit function running");
+  handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
+    // console.log("Submit function running");
+    const {history} = props;
     //Check if email exists
     //axios post here
     axios
@@ -87,10 +91,12 @@ const FormikLoginForm = withFormik({
       .then(res => {
         const {name,zip,company} = res.data
         setSubmitting(false);
-        setStatus({ name: name, zip: zip, company:company });
+        setStatus({ name: name, zip: zip, company:company, history:history });
         resetForm();
-      });
+      }, {...props});
   }
 })(RecruiterRegistration);
+
+const RouterFormik = withRouter(FormikLoginForm)
 
 export default FormikLoginForm;
