@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'; 
 import axios from 'axios';
 
-const UserUpdateForm = (props) => {
+const JobUpdateForm = (props) => {
     const [person, setPerson] = useState(null);
 
     const fetchPerson = id => {
@@ -42,4 +42,4 @@ const UserUpdateForm = (props) => {
     );
 };
 
-export default UserUpdateForm;
+export default JobUpdateForm;

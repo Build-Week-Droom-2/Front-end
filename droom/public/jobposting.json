@@ -1,0 +1,39 @@
+{
+    "posting":[{
+        "name":"Lambda Hospital",
+        "title":"Medical Doctor (MD)",
+        "exp": "A Minimum of 1 year of experience.",
+        "edu": "Active Medical License Required",
+        "skills": ["You will undertake tasks aiming for prevention and promotion of healthy habits.",
+                    "Obtain health history and perform physical examinations.",
+                    "Diagnose and direct counseling for each patient on a plan for treatment."]
+
+    },
+    {
+        "name":"Google",
+        "title":"Software Engineer",
+        "exp": "1-4 years’ experience in programming and/or software development; or equivalent combination of education and experience",
+        "edu": "Bachelor's degree in computer science or related field",
+        "skills": ["Experience developing software from written specifications", 
+                    "Ability to understand different software development processes and roles", 
+                    "Excellent written and verbal communication skills in English",
+                    "Experience with Angular.js, React, Bootstrap, jQuery, git, and other modern web design tools"]
+
+    },
+    {
+        "name":"SmallWonders",
+        "title":"Early Childhood Assistant Teacher",
+        "exp": "1 year of experience prefered",
+        "edu": "High School Diploma required",
+        "skills": ["CPR and First Aid Certification or willingness to obtain", 
+                    "Must meet state specific guidelines for the role", 
+                    "Ability to speak, read, and write English",
+                    "Outstanding customer service skills"]
+
+    }
+
+
+
+    ]
+       
+}

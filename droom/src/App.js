@@ -5,17 +5,21 @@ import PrivateRoute from './components/Login/PrivateRoute'
 //imported components
 import SplashPage from './components/SplashPage/SplashPage'
 import Login from './components/Login/Login'
-import UserPage from './components/UserPage/UserPage';
-import JobPage from './components/JobProfile/JobPage';
-import UserRegistrationSplash from './components/Registration/UserRegistrationSplash';
-import GeneralRegistration from './components/Registration/GeneralRegistration'
 import WelcomeBack from './components/Login/WelcomeBack';
+import RecruiterRegistration from './components/Registration/RecruiterRegistration'
+import GeneralRegistrationUser from './components/Registration/GeneralRegistrationUser'
+import GeneralRegistrationRecruiter from './components/Registration/GeneralRegistrationRecruiter'
+import UserRegistration from './components/Registration/UserRegistration';
+import UserPage from './components/UserPage/UserPage';
+import RecruiterPage from './components/JobProfile/RecruiterPage';
+
 
 import './App.css';
 
 const DroomData = createContext();
 
 function App() {
+
   return (
     <DroomData.Provider>
       <Router>
@@ -24,11 +28,19 @@ function App() {
         
         {/* <UserRegistration /> */}
         {/* <CompanyRegistration /> */}
-        <SplashPage />
+        <Route exact path='/' component={SplashPage} />
         {/* <Link to='/login'>Login</Link> */}
-        <Route path='/login' component={Login}/>
+        <Route exact path='/login' component={Login}/>
         {/* <PrivateRoute exact path='/' component={} /> */}
-        <Route path='/register' component={WelcomeBack} />
+        {/* <Route path='/register'  component={GeneralRegistration} /> */}
+        <Route path='/general-register/user' render={props => (
+          <GeneralRegistrationUser {...props}/>
+         )}/>
+         <Route path='/general-register/recruiter' component={GeneralRegistrationRecruiter}/>
+          <Route exact path='/recruiter-register' component={RecruiterRegistration}/>
+          <Route path='/user-register' component={UserRegistration}/>
+          <Route path='/user-page' component={UserPage}/>
+          <Route path='/recruiter-page' component={RecruiterPage}/>
        </Router>
     </DroomData.Provider>
   );
