@@ -22,7 +22,9 @@ const SplashPage = () => {
           </div>
 
           <div>
-          <Modal size="tiny" trigger={<Button color="blue">Sign Up</Button>}>
+           <Link to='/general-register'><Button color="blue">Sign Up</Button></Link>
+          </div>
+          {/* <Modal size="tiny" trigger>
             <Header icon='user circle' content='Please choose wisely!' />
             <Modal.Content>
               <p>
@@ -37,8 +39,8 @@ const SplashPage = () => {
                 <Icon name='checkmark' /> Job Provider
               </Button></Link>
             </Modal.Actions>
-          </Modal>
-          </div>
+          </Modal> */}
+          
       </div>
   )
 }

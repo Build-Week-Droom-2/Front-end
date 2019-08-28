@@ -7,6 +7,7 @@ import SplashPage from './components/SplashPage/SplashPage'
 import Login from './components/Login/Login'
 import WelcomeBack from './components/Login/WelcomeBack';
 import RecruiterRegistration from './components/Registration/RecruiterRegistration'
+import GeneralRegistration from './components/Registration/GeneralRegistration'
 
 import './App.css';
 
@@ -27,7 +28,7 @@ function App() {
         <Route exact path='/login' component={Login}/>
         {/* <PrivateRoute exact path='/' component={} /> */}
         {/* <Route path='/register'  component={GeneralRegistration} /> */}
-        <Route path='/job-seeker/register' render={props => (
+        <Route path='/general-register' render={props => (
           <GeneralRegistration {...props}/>
          )}/>
          <Route path='/job-provider/register' component={RecruiterRegistration}/>
