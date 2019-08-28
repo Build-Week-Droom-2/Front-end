@@ -5,10 +5,6 @@ import PrivateRoute from './components/Login/PrivateRoute'
 //imported components
 import SplashPage from './components/SplashPage/SplashPage'
 import Login from './components/Login/Login'
-import UserPage from './components/UserPage/UserPage';
-import JobPage from './components/JobProfile/JobPage';
-import UserRegistrationSplash from './components/Registration/UserRegistrationSplash';
-import GeneralRegistration from './components/Registration/GeneralRegistration'
 import WelcomeBack from './components/Login/WelcomeBack';
 import RecruiterRegistration from './components/Registration/RecruiterRegistration'
 
