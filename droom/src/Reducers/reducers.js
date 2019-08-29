@@ -8,11 +8,15 @@ import {
     ADD_EDIT_START,
     ADD_EDIT_SUCCESS,
     ADD_EDIT_FAILURE,
-    REMOVE_LISTING
+    REMOVE_LISTING,
+    FETCH_USER_UPDATED_DATA_START,
+    FETCH_USER_UPDATED_DATA_SUCCESS,
+
   } from '../Actions/actions.js';
 
 const initialState = {
     data: [],
+    // updateData: [],
     isFetching: false,
     error: ''
 }
@@ -35,6 +39,19 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.payload
+            }
+        case FETCH_USER_UPDATED_DATA_START :
+            return {
+                ...state,
+                isFetching: !state.isFetching,
+                error:''
+            }
+        case FETCH_USER_UPDATED_DATA_SUCCESS:
+            return {
+                ...state,
+                isFetching: true,
+                data: action.payload
+                // updateData: action.payload
             }
         case ADD_USER_START:
             return{

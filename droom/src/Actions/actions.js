@@ -4,6 +4,9 @@ export const FETCH_USER_DATA_START = 'FETCH_USER_DATA_START';
 export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA_SUCCESS';
 export const FETCH_USER_DATA_FAILURE = 'FETCH_USER_DATA_FAILURE';
 
+export const FETCH_USER_UPDATED_DATA_START = 'FETCH_USER_UPDATED_DATA_START';
+export const FETCH_USER_UPDATED_DATA_SUCCESS = 'FETCH_USER_UPDATED_DATA_SUCCESS'
+
 export const REMOVE_LISTING = `REMOVE_LISTING`;
 
 export const ADD_USER_START = `ADD_USER_START`;
@@ -24,6 +27,19 @@ export const getData = () => {
             .then(res => {
                 console.log(res)
                 dispatch({ type: FETCH_USER_DATA_SUCCESS, payload: res.data })
+            })
+            .catch(err => console.log(err))
+    }
+}
+
+export const getUpdate = () => {
+    return dispatch => {
+        dispatch({type: FETCH_USER_UPDATED_DATA_START});
+        axiosWithAuth()
+            .get(`http://localhost:5000/api/users/`)
+            .then(res => {
+                console.log('it is running over and over',res)
+                dispatch({ type: FETCH_USER_UPDATED_DATA_SUCCESS, payload: res.data })
             })
             .catch(err => console.log(err))
     }
@@ -60,11 +76,11 @@ export const addData = (values)  => {
     }
 }
 
-export const editData = (id)  => {
+export const editData = (id, values)  => {
     return dispatch => {
         dispatch({type: ADD_EDIT_START});
         axiosWithAuth()
-            .put(`http://localhost:5000/api/users/${id}`)
+            .put(`http://localhost:5000/api/users/${id}`, values)
             .then(res => {
                 dispatch({type: ADD_EDIT_SUCCESS})
                 console.log(res)}
