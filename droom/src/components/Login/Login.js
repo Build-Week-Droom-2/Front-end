@@ -24,7 +24,7 @@ const Login = props => {
       .post('http://localhost:5000/api/login', user)
       .then(res => {
         localStorage.setItem('token', res.data.payload)
-        //props.history.push('/protected')
+        props.history.push('/protected')
         console.log('login page',res.config.data)
       })
       .catch(err => console.log('err in catch',err.response))

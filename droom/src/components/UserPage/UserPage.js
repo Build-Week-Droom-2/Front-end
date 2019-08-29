@@ -17,7 +17,7 @@ class UserPage extends React.Component {
 
     componentDidMount() {
         console.log('component did mount');
-        getData()
+        this.props.getData()
     }
 
     // componentWillReceiveProps(newProps) {
@@ -39,16 +39,15 @@ class UserPage extends React.Component {
         // }
         console.log(this.props.data)
         return(
+            <>
+             {this.props.data && this.props.data.map(person => person.email === "droom@yahoo.com" && 
             <div className='CardMaker'>
-                {/* Test */}
-                <button onClick={this.props.getData}>Click</button>
-                {this.props.data && this.props.data.map(person => <h1>{person.name}</h1>)}
-                
-                {/* <CardMaker name={name} title={title} exp={experience} edu={education} skills={skills} /> */}
+                <CardMaker name={person.name} title={person.title} exp={person.exp} edu={person.edu} skills={person.skills} />
                 <div className='update'>
                     {/* <button>Edit</button> */}
                 </div>
-            </div>
+            </div>)}
+            </>
         );
     }
 }

@@ -12,6 +12,10 @@ let users = [
     name: 'Chris',
     email: 'droom@yahoo.com', 
     account: 1,
+    title:"Full Stack Web Developer",
+    exp: "2 years of experience",
+    edu: "Endorsed by Lambda School Full Stack Web Developer",
+    skills: ["Bachelors in Computer Science", "Node and Java Experience", "2 years experience"]
     
   },
   {

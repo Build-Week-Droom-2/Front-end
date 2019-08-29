@@ -67,7 +67,7 @@ useEffect(() => {
                 </label>
                 <label className='labels'>
                     <h3>Skills</h3>
-                <p className='skills userP'>{props.skills}</p>
+                <p className='skills userP'>{props.skills.map(skill => <p>{skill}</p>)}</p>
                 </label>
             </div>
         );
