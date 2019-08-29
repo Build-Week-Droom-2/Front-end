@@ -6,29 +6,29 @@ const port = 5000;
 const token =
   'aekkd432KldskJGHDK54Jslsk4d3KjfvjeingKLLdale94kdn3n5kd02dk3KsLL24lsK03Kl';
 let nextId = 4;
-let users = [
-  {
-    id: 1,
-    name: 'Chris',
-    email: 'droom@yahoo.com', 
-    account: 1,
-    title:"Full Stack Web Developer",
-    exp: "2 years of experience",
-    edu: "Endorsed by Lambda School Full Stack Web Developer",
-    skills: ["Bachelors in Computer Science", "Node and Java Experience", "2 years experience"]
-    
-  },
-  {
-    id: 2,
-    name: 'Greg',
-    email: 'gregj@yahoo.com',
-  },
-  {
-    id: 3,
-    name: 'Mimi',
-    email: 'mimih@yahoo.com'
-  },
-];
+let users = 
+{
+      id: 1,
+      name: 'Chris',
+      email: 'droom@yahoo.com', 
+      account: 1,
+      title:"Full Stack Web Developer",
+      exp: "2 years of experience",
+      edu: "Endorsed by Lambda School Full Stack Web Developer",
+      skills: ["Bachelors in Computer Science", "Node and Java Experience", "2 years experience"],
+      matchedJobs: [
+        {id:1, company: 'Uber', position:'Driver', title:'recruiterName'},
+        {id:2, company: 'LyftLambd', position:'Driver', title:'recruiterName'},
+        {id:3, company: 'McDonalds', position:'Milkshake maker', title:'recruiterName'}
+      ]
+}
+   
+  
+  // let matched = [
+  //   {id:4, company: 'Uber', position:'Driver', title:'recruiterName'},
+  //   {id:5, company: 'LyftLambd', position:'Driver', title:'recruiterName'},
+  //   {id:6, company: 'McDonalds', position:'Milkshake maker', title:'recruiterName'}
+  // ]
 app.use(bodyParser.json());
 app.use(cors());
 function authenticator(req, res, next) {
@@ -85,7 +85,7 @@ app.put('/api/users/:id', authenticator, (req, res) => {
     res.status(404).send({ msg: 'Unable to locate the user' });
   }
 });
-app.delete('/api/users/:id', authenticator, (req, res) => {
+app.delete('/api/user/:id', authenticator, (req, res) => {
   const { id } = req.params;
   users = users.filter(u => u.id !== Number(id));
   res.send(users);

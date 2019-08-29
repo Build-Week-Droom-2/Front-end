@@ -16,7 +16,6 @@ import {
 
 const initialState = {
     data: [],
-    // updateData: [],
     isFetching: false,
     error: ''
 }
@@ -91,7 +90,8 @@ export const reducer = (state = initialState, action) => {
         case REMOVE_LISTING:
             return {
                 ...state,
-                data: [...state.data],
+                data: action.payload,
+
                 error: ''
             }
         

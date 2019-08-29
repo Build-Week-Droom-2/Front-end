@@ -1,8 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 import { connect } from 'react-redux'
-import { getData} from "../../Actions/"
+import { getData } from "../../Actions/"
 import UserRegistration from "./EditUser.js"
+import {Link} from 'react-router-dom'
 
 function CardMaker(props){
     console.log('this is running',props)
@@ -36,7 +37,7 @@ function CardMaker(props){
                 
                 <div className="user-icons">
                     <div className="match-icon">
-                        <Popup content='View your matches' trigger={<Button circular icon="star" />} />
+                        <Link to="/protected/user-matches"><Popup content='View your matches' trigger={<Button circular icon="star" />} /></Link>
                     </div>
     
                     <Popup content='Edit your profile' trigger={<Button circular icon="edit" onClick={editUser}/>} />
