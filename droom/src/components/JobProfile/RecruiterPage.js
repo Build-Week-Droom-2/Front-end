@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth.js';
+import {connect} from 'react-redux'
 import CardMaker from './JobCard.js';
 import {Link} from 'react-router-dom';
 
-export default class JobPage extends React.Component {
+ class JobPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +14,7 @@ export default class JobPage extends React.Component {
     
 
     // componentDidMount() {
-    //     this.fetchPerson(this.props.match.params.id);
+    //     this.fetchPerson();
     // }
 
     // componentWillReceiveProps(newProps) {
@@ -23,21 +24,18 @@ export default class JobPage extends React.Component {
     // }
 
     // fetchPerson = id => {
-    //     axios.get('userprofile')
-    //     .then(res => this.setState({person: res.data}))
-    //     .catch(err => console.log(err.response));
+    //     axiosWithAuth()
+    //         .get('http://localhost:5000/api/users')
+    //         .then(res => console.log(res))
+    //         .catch(err => console.log("err", err.response));
     // }
+
+       
     render() {
-        
-        // console.log("props", this.props);
-        // console.log(this.props.location.state);
-        const name = this.props.location.state.name;
+         const name = this.props.location.state.name;
         const company = this.props.location.state.company;
         const history = this.props.history;
-        // // if(!this.state.pers {
-        // console.log(this.state);
-        //     return <div>Loading User Profile</div>
-        // }
+       
 
         return(
             <div className='CardMaker'>
@@ -46,9 +44,11 @@ export default class JobPage extends React.Component {
                     {/* <Link to `/update-profile/${this.state.person.id}`>Edit</Link> */}
                 </div>
             </div>
+            
         );
     }
 }
 
+export default JobPage
 /* comment
 comment*/

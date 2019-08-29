@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import { Link, withRouter } from "react-router-dom";
+import {connect} from 'react-redux'
+import {addData} from "../../Actions/actions.js"
 import * as Yup from "yup";
 import axios from 'axios';
 import GeneralRegistrationSplash from './GeneralRegistrationSplash';
+import { bindActionCreators } from 'redux';
 
 const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
   const [user,setUser] = useState();
@@ -97,24 +100,31 @@ const FormikLoginForm = withFormik({
   
   handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
     // console.log('values in GR',values);
-    const {history} = props;
+    // const {history} = props;
     // console.log(props);
     // console.log(history);
     // console.log("Submit function running");
     //Check if email exists
     //axios post here
-    axios
-      .post("https://reqres.in/api/users", values)
-      .then(res => {
-        //   console.log(res);
-        const {name,email,password,confirm, id} = res.data
-        setSubmitting(false);
-        setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, history: history, id:id });
-        resetForm();
-      }, {...props});
+    console.log('inside handlesubmit', values)
+    props.addData(values)
+    props.history.push('/protected')
+    // axios
+    //   .post("http://localhost:5000/api/users", values)
+    //   .then(res => {
+    //     //   console.log(res);
+    //     const {name,email,password,confirm, id} = res.data
+    //     setSubmitting(false);
+    //     setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, id:id });
+    //     resetForm();
+    //   }, {...props});
   }
 })(GeneralRegistration);
 
-const RouterFormik = withRouter(FormikLoginForm)
+const mapDispatchToProps = dispatch => (bindActionCreators({
+  addData
+}, dispatch));
 
-export default FormikLoginForm;
+const RouterFormik = connect(null, mapDispatchToProps)(FormikLoginForm)
+const RouterFormik2 = withRouter(RouterFormik)
+export default RouterFormik;

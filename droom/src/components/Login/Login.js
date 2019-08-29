@@ -4,7 +4,7 @@ import {axiosWithAuth} from '../utils/axiosWithAuth.js';
 import axios from 'axios'
 
 const Login = props => {
- 
+ console.log('login page props', props)
   const [user, setUser] = useState({
       email: '',
       password: ''
@@ -21,12 +21,11 @@ const Login = props => {
   const login = e => {
     e.preventDefault();
     axios
-      .post('https://droom-app.herokuapp.com/api/droom/login', user)
+      .post('http://localhost:5000/api/login', user)
       .then(res => {
-        console.log(res)
-        // localStorage.setItem('token', res.data.payload)
-        // props.history.push('/protected')
-        console.log('login page',res)
+        localStorage.setItem('token', res.data.payload)
+        props.history.push('/protected')
+        console.log('login page',res.config.data)
       })
       .catch(err => console.log('err in catch',err.response))
   }

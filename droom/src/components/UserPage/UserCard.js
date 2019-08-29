@@ -1,5 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
+import { connect } from 'react-redux'
+import { editData } from "../../Actions/"
+import UserRegistration from "./EditUser.js"
 
 function CardMaker(props){
     console.log('props in usercard',props)
@@ -7,23 +10,16 @@ function CardMaker(props){
     //setPropsInfo(props)
     const [editing, setEditing] = useState(false)
     const [editedInfo, setEditedInfo] = useState();
-    const [nameState, setNameState] = useState();
-const [titleState, setTitleState]=useState();
-const [expState, setExpState] = useState();
-const [eduState, setEduState]=useState();
-const [skillState, setSkillState] = useState();
+    //const [info, setInfo] = useState();
+
 
 useEffect(() => {
-    setNameState(props.name);
-    setTitleState(props.title);
-    setExpState(props.exp);
-    setEduState(props.edu);
-    setSkillState(props.skill);
+   
 }, [])
 
     const editUser = () => {
-        // setEditing(true)
-        return props.history.push('/edit-user', {name: nameState, title: titleState, exp: expState, edu: eduState, skill:skillState});
+        setEditing(true)
+       
 
     }
     // const handleSubmit = e => {
@@ -31,10 +27,10 @@ useEffect(() => {
     //     setEditing(false)
     // }
 
-    const handleChange = () => {
+    // const handleChange = () => {
         
     // }
-    // if(!editing){
+    if(!editing){
         return(
             <div className='userCard'>
                 
@@ -67,26 +63,13 @@ useEffect(() => {
                 </label>
                 <label className='labels'>
                     <h3>Skills</h3>
-                <p className='skills userP'>{props.skills}</p>
+                <p className='skills userP'>{props.skills.map(skill =><> <p key={skill}>{skill}</p></>)}</p>
                 </label>
             </div>
         );
-    } 
-    
-    // if(editing){
-    //     // [user, setUser]
-    //     // push userPage, userdata.....
-    //     return(
-    //         <form className='editingForm' onSubmit={handleSubmit}>
-    //             <input type='text' name='name' placeholder='name' value={props.name} onChange={handleChange} />
-    //             <input type='text' name='title' placeholder='title' value={props.title} onChange={handleChange} />
-    //             <input type='text' name='exp' placeholder='exp' value={props.exp} onChange={handleChange} />
-    //             <input type='text' name='edu' placeholder='edu' value={props.edu} onChange={handleChange} />
-    //             <input type='text' name='skills' placeholder='skills' value={props.skills} onChange={handleChange} />
-    //             <button type='submit'>Update Profile</button>
-    //         </form>
-    //     )
-    // }
+    } else {
+        return <UserRegistration props={props} setEditing={setEditing}/>        
+    }
     
 }
 
