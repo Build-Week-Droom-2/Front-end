@@ -7,24 +7,24 @@ import * as Yup from "yup";
 import axios from 'axios';
 //import Userpage from '../UserPage/UserPage'
 
-const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
+const UserRegistration = (props, { touched, errors, handleSubmit}) => {
   const [user,setUser] = useState();
  
-  useEffect(() => {
-      if (status) {
-        setUser(status);
-      }
-    }, [status]);
+  // useEffect(() => {
+  //     if (status) {
+  //       setUser(status);
+  //     }
+  //   }, [status]);
 
-    if (user) {
-      return user.history.push('/user-page', {name: user.name, url:user.zip, title:user.title, experience:user.experience, education:user.education,skills:user.skills});
-    }
+  //   if (user) {
+  //     return user.history.push('/user-page', {name: user.name, url:user.zip, title:user.title, experience:user.experience, education:user.education,skills:user.skills});
+  //   }
     
   //  user && user.map(user => user.history.push('/user-page'), {name: user.name})
       return(
-        <UserContext.Provider value={user}>
+       
           <div className="user-registration">
-              <Button animated color="green">
+              <Button animated color="green" >
                 <Button.Content visible>Back</Button.Content>
                 <Button.Content hidden>
                   <Icon name='arrow left' />
@@ -42,7 +42,7 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
       
                 {touched.name && errors.name && <p>{errors.name}</p>}
                 <label>Name
-                  <Field component="input" type="text" name="name" placeholder="Name" />
+                  <Field component="input" type="text" name={props.props.name} placeholder="Name" />
                 </label>
       
                 {touched.zip && errors.zip && <p>{errors.zip}</p>}
@@ -72,7 +72,7 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
                 <Button type='submit' color="blue" onClick={handleSubmit}>Edit</Button>
               </Form>
           </div>
-        </UserContext.Provider>
+    
       )
   
 }

@@ -41,7 +41,7 @@ function authenticator(req, res, next) {
 }
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
-  if (email === 'droom@yahoo.com' && password === 'droom@yahoo.com') {
+  if (email === 'droom@yahoo.com' && password === 'droom@yahoo.com')   {
     req.loggedIn = true;
     res.status(200).json({
       payload: token

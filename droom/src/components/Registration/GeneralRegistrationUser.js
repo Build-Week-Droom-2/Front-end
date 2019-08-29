@@ -106,18 +106,18 @@ const FormikLoginForm = withFormik({
     // console.log("Submit function running");
     //Check if email exists
     //axios post here
-    // console.log('inside handlesubmit', values)
-    // props.addData(values)
-    // props.history.push('/protected')
-    axios
-      .post("http://localhost:5000/api/users", values)
-      .then(res => {
-        //   console.log(res);
-        const {name,email,password,confirm, id} = res.data
-        setSubmitting(false);
-        setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, id:id });
-        resetForm();
-      }, {...props});
+    console.log('inside handlesubmit', values)
+    props.addData(values)
+    props.history.push('/protected')
+    // axios
+    //   .post("http://localhost:5000/api/users", values)
+    //   .then(res => {
+    //     //   console.log(res);
+    //     const {name,email,password,confirm, id} = res.data
+    //     setSubmitting(false);
+    //     setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, id:id });
+    //     resetForm();
+    //   }, {...props});
   }
 })(GeneralRegistration);
 
