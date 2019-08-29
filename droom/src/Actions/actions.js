@@ -16,11 +16,11 @@ export const ADD_EDIT_FAILURE = `ADD_EDIT_FAILURE`;
 
 
 
-export const getData = id => {
+export const getData = () => {
     return dispatch => {
         dispatch({type: FETCH_USER_DATA_START});
         axiosWithAuth()
-            .get(`http://localhost:5000/api/users/${id}`)
+            .get(`http://localhost:5000/api/users/`)
             .then(res => {
                 console.log(res)
                 dispatch({ type: FETCH_USER_DATA_SUCCESS, payload: res.data })
@@ -41,12 +41,16 @@ export const deleteData = (removeID)  => {
 }
 
 export const addData = (values)  => {
+    console.log('reached add data')
     return dispatch => {
+        console.log('before dispatch')
         dispatch({type: ADD_USER_START});
+        console.log('inside return')
         axiosWithAuth()
             .post(`http://localhost:5000/api/users`, values)
             .then(res => {
                 dispatch({type: ADD_USER_SUCCESS})
+                console.log('axios requist sent')
                 console.log(res)}
                 )
             .catch(err => {

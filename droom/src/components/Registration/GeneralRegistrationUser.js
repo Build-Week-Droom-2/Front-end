@@ -7,6 +7,7 @@ import {addData} from "../../Actions/actions.js"
 import * as Yup from "yup";
 import axios from 'axios';
 import GeneralRegistrationSplash from './GeneralRegistrationSplash';
+import { bindActionCreators } from 'redux';
 
 const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
   const [user,setUser] = useState();
@@ -99,13 +100,14 @@ const FormikLoginForm = withFormik({
   
   handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
     // console.log('values in GR',values);
-    const {history} = props;
+    // const {history} = props;
     // console.log(props);
     // console.log(history);
     // console.log("Submit function running");
     //Check if email exists
     //axios post here
-    addData(values)
+    console.log('inside handlesubmit', values)
+    props.addData(values)
     props.history.push('/protected')
     // axios
     //   .post("https://reqres.in/api/users", values)
@@ -119,6 +121,10 @@ const FormikLoginForm = withFormik({
   }
 })(GeneralRegistration);
 
-const RouterFormik = connect(null, {addData})(FormikLoginForm)
+const mapDispatchToProps = dispatch => (bindActionCreators({
+  addData
+}, dispatch));
+
+const RouterFormik = connect(null, mapDispatchToProps)(FormikLoginForm)
 const RouterFormik2 = withRouter(RouterFormik)
-export default RouterFormik2;
+export default RouterFormik;
