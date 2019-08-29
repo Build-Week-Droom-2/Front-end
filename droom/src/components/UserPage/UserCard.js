@@ -1,11 +1,11 @@
 import React,{useState, useEffect} from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 import { connect } from 'react-redux'
-import { editData } from "../../Actions/"
+import { getData} from "../../Actions/"
 import UserRegistration from "./EditUser.js"
 
 function CardMaker(props){
-    console.log('props in usercard',props)
+    console.log('this is running',props)
     //const [propsInfo, setPropsInfo]= useState();
     //setPropsInfo(props)
     const [editing, setEditing] = useState(false)
@@ -13,13 +13,13 @@ function CardMaker(props){
     //const [info, setInfo] = useState();
 
 
-useEffect(() => {
-   
-}, [])
+// useEffect(() => {
+  
+// }, [])
 
-    const editUser = () => {
+    const editUser = e => {
+        e.preventDefault()
         setEditing(true)
-       
 
     }
     // const handleSubmit = e => {
@@ -68,9 +68,9 @@ useEffect(() => {
             </div>
         );
     } else {
-        return <UserRegistration props={props} setEditing={setEditing}/>        
+        return <UserRegistration person={props} setEditing={setEditing}/>        
     }
     
 }
 
-export default CardMaker;
+export default connect(null, {getData})(CardMaker);
