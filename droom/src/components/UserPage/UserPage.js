@@ -37,6 +37,8 @@ export default class UserPage extends React.Component {
         return(
             <div className='CardMaker'>
                 {/* Test */}
+                
+                
                 <CardMaker name={name} title={title} exp={experience} edu={education} skills={skills} />
                 <div className='update'>
                     {/* <button>Edit</button> */}

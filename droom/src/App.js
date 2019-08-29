@@ -33,7 +33,7 @@ function App() {
         <Route exact path='/' component={SplashPage} />
         {/* <Link to='/login'>Login</Link> */}
         <Route exact path='/login' component={Login}/>
-        {/* <PrivateRoute exact path='/' component={} /> */}
+        <PrivateRoute exact path='/protected' component={RecruiterPage} />
         {/* <Route path='/register'  component={GeneralRegistration} /> */}
         <Route path='/general-register/user' render={props => (
           <GeneralRegistrationUser {...props}/>
@@ -44,7 +44,7 @@ function App() {
           <Route path='/user-page' component={UserPage}/>
           <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/edit-user' component={EditUser}/>
-          <Route path='/recruiter-page' component={RecruiterPage}/>
+          {/* <Route path='/recruiter-page' component={RecruiterPage}/> */}
        </Router>
     </DroomData.Provider>
   );

@@ -31,7 +31,7 @@ useEffect(() => {
     //     setEditing(false)
     // }
 
-    const handleChange = () => {
+    // const handleChange = () => {
         
     // }
     // if(!editing){
@@ -73,21 +73,8 @@ useEffect(() => {
         );
     } 
     
-    // if(editing){
-    //     // [user, setUser]
-    //     // push userPage, userdata.....
-    //     return(
-    //         <form className='editingForm' onSubmit={handleSubmit}>
-    //             <input type='text' name='name' placeholder='name' value={props.name} onChange={handleChange} />
-    //             <input type='text' name='title' placeholder='title' value={props.title} onChange={handleChange} />
-    //             <input type='text' name='exp' placeholder='exp' value={props.exp} onChange={handleChange} />
-    //             <input type='text' name='edu' placeholder='edu' value={props.edu} onChange={handleChange} />
-    //             <input type='text' name='skills' placeholder='skills' value={props.skills} onChange={handleChange} />
-    //             <button type='submit'>Update Profile</button>
-    //         </form>
-    //     )
-    // }
+
     
-}
+// }
 
 export default CardMaker;
