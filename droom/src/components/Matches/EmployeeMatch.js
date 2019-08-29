@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 function EmployeeMatch(props){
     return(
@@ -9,8 +10,9 @@ function EmployeeMatch(props){
                 <div className="match-icon">
                     <Popup content='View your matches' trigger={<Button circular icon="star" />} />
                 </div>
-
+                <Link to='recruiter-page'>
                 <Popup content='Back to your profile' trigger={<Button circular icon="home" />} />
+                </Link>
                 <Popup content='Check your messages' trigger={<Button circular icon="mail" />} />
                 {/* Issues: Bottom part of circular button doesn't register as button when hovering */}
             </div>

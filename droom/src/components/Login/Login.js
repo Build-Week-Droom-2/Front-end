@@ -2,9 +2,10 @@ import React, {useState} from "react";
 import { Link, Route } from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWithAuth.js';
 import axios from 'axios'
+import recruiter from '../../fakeData/recruiter';
+import jobs from '../../fakeData/jobs';
 
 const Login = props => {
- console.log('login page props', props)
   const [user, setUser] = useState({
       email: '',
       password: ''
@@ -20,7 +21,13 @@ const Login = props => {
 
   const login = e => {
     e.preventDefault();
-    axios
+    if(user.email=="jobs@jobs.com" && user.password=="jobs@jobs.com"){
+      window.localStorage.setItem('recruiter', JSON.stringify(recruiter));
+      window.localStorage.setItem('jobs', JSON.stringify(jobs));
+      props.history.push('/recruiter-page')
+    } else {
+
+      axios
       .post('http://localhost:5000/api/login', user)
       .then(res => {
         localStorage.setItem('token', res.data.payload)
@@ -28,6 +35,7 @@ const Login = props => {
         console.log('login page',res.config.data)
       })
       .catch(err => console.log('err in catch',err.response))
+    }
   }
 
   return (

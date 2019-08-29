@@ -14,11 +14,15 @@ import UserPage from './components/UserPage/UserPage';
 import RecruiterPage from './components/JobProfile/RecruiterPage';
 import EditRecruiter from './components/UserPage/EditRecruiter';
 import EditUser from './components/UserPage/EditUser';
+import JobListings from './components/JobProfile/JobListings.js';
 
-
+import RecruiterMatch from './components/JobProfile/RecruiterMatch.js'
+import EmployeeMatch from './components/Matches/EmployeeMatch.js';
+import JobPosting from './components/JobProfile/JobPosting';
 import './App.css';
 
 function App() {
+  
 
   return (
 
@@ -43,6 +47,10 @@ function App() {
           <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/edit-user' component={EditUser}/>
           {/* <Route path='/recruiter-page' component={RecruiterPage}/> */}
+          <Route path='/job-listings' component={JobListings} />
+          <Route path='/job-posting' component={JobPosting} />
+          <Route path='/employee-match' component={EmployeeMatch} />
+          <Route path='/matches' component={RecruiterMatch} />
        </Router>
   );
 }

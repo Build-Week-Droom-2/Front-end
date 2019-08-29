@@ -7,31 +7,34 @@ import axios from 'axios';
 
 const RecruiterEdit = ({errors,touched,values,status, handleSubmit, history}) => {
     
-    // console.log()
-    // console.log(name);
-    // console.log(company);
-    const {name, company} = history.location.state;
-    console.log(name, company);
-    console.log(history);
   const [user,setUser] = useState();
 
+  const recruiter = window.localStorage.getItem("recruiter");
+        const recParse = JSON.parse(recruiter);
+        const name = recParse.name;
+        const company = recParse.company;
+  
   useEffect(() => {
       if (status) {
         setUser(status);
       }
     }, [status]);
 
+    useEffect(()=>{
+      values.name = name;
+      values.company = company;
+    },[])
+
   if (user) {
-
-
-    user.history.push('/recruiter-page', {name: user.name, company:user.company});
+    window.localStorage.setItem('recruiter', JSON.stringify(user));
+    user.history.push('/recruiter-page');
   }
 
   return(
     <div className="recruiter-registration">
-        <Link to='/'>
+        <Link to='/recruiter-page'>
           <Button animated color="green">
-            {/* <Button.Content visible>Back</Button.Content> */}
+            <Button.Content visible>Back</Button.Content>
             <Button.Content hidden>
               <Icon name='arrow left' />
             </Button.Content>
@@ -47,12 +50,12 @@ const RecruiterEdit = ({errors,touched,values,status, handleSubmit, history}) =>
 
           {touched.name && errors.name && <p>{errors.name}</p>}
           <label>Name
-            <Field component="input" type="text" name="name" placeholder={name}/>
+            <Field component="input" type="text" name="name" placeholder={name} />
           </label>
 
           {touched.company && errors.company && <p>{errors.company}</p>}
           <label>Company
-            <Field type="text" name="company" placeholder={company} />
+            <Field type="text" name="company"  placeholder={company}/>
           </label>
 
           <Button type='submit' color="blue" onClick={handleSubmit}>Submit</Button>
@@ -62,7 +65,7 @@ const RecruiterEdit = ({errors,touched,values,status, handleSubmit, history}) =>
 }
 
 const FormikLoginForm = withFormik({
-  mapPropsToValues({ name, zip, company }) {
+  mapPropsToValues({ name, company }) {
     return {
       name: name || "",
       company: company || ""
@@ -79,10 +82,7 @@ const FormikLoginForm = withFormik({
   //======END VALIDATION SCHEMA==========
   
   handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
-    // console.log("Submit function running");
     const {history} = props;
-    //Check if email exists
-    //axios post here
     axios
       .post("https://reqres.in/api/users", values)
       .then(res => {
