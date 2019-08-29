@@ -23,7 +23,7 @@ const DroomData = createContext();
 function App() {
 
   return (
-    <DroomData.Provider>
+    // <DroomData.Provider>
       <Router>
         
         {/* <UserPage /> */}
@@ -46,7 +46,7 @@ function App() {
           <Route path='/edit-user' component={EditUser}/>
           <Route path='/recruiter-page' component={RecruiterPage}/>
        </Router>
-    </DroomData.Provider>
+    // </DroomData.Provider>
   );
 }
 
