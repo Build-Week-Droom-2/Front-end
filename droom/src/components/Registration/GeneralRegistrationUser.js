@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import { Link, withRouter } from "react-router-dom";
+import {connect} from 'react-redux'
+import {addData} from "../../Actions/actions.js"
 import * as Yup from "yup";
 import axios from 'axios';
 import GeneralRegistrationSplash from './GeneralRegistrationSplash';
@@ -103,18 +105,20 @@ const FormikLoginForm = withFormik({
     // console.log("Submit function running");
     //Check if email exists
     //axios post here
-    axios
-      .post("https://reqres.in/api/users", values)
-      .then(res => {
-        //   console.log(res);
-        const {name,email,password,confirm, id} = res.data
-        setSubmitting(false);
-        setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, history: history, id:id });
-        resetForm();
-      }, {...props});
+    addData(values)
+    props.history.push('/protected')
+    // axios
+    //   .post("https://reqres.in/api/users", values)
+    //   .then(res => {
+    //     //   console.log(res);
+    //     const {name,email,password,confirm, id} = res.data
+    //     setSubmitting(false);
+    //     setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, history: history, id:id });
+    //     resetForm();
+    //   }, {...props});
   }
 })(GeneralRegistration);
 
-const RouterFormik = withRouter(FormikLoginForm)
-
-export default FormikLoginForm;
+const RouterFormik = connect(null, {addData})(FormikLoginForm)
+const RouterFormik2 = withRouter(RouterFormik)
+export default RouterFormik2;

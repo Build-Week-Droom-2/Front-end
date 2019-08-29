@@ -13,4 +13,4 @@ export {
     ADD_EDIT_SUCCESS,
     ADD_EDIT_FAILURE,
     REMOVE_LISTING
-} from "./actions"
+} from "./actions.js"

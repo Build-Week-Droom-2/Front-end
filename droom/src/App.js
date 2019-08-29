@@ -18,14 +18,11 @@ import EditUser from './components/UserPage/EditUser';
 
 import './App.css';
 
-const DroomData = createContext();
-
 function App() {
 
   return (
-    <DroomData.Provider>
+
       <Router>
-        
         {/* <UserPage /> */}
         
         {/* <UserRegistration /> */}
@@ -33,7 +30,8 @@ function App() {
         <Route exact path='/' component={SplashPage} />
         {/* <Link to='/login'>Login</Link> */}
         <Route exact path='/login' component={Login}/>
-        <PrivateRoute exact path='/protected' component={RecruiterPage} />
+        <PrivateRoute exact path='/protected' component={UserPage} />
+        <Route exact path='/recruiter-page' component={RecruiterPage} />
         {/* <Route path='/register'  component={GeneralRegistration} /> */}
         <Route path='/general-register/user' render={props => (
           <GeneralRegistrationUser {...props}/>
@@ -41,12 +39,11 @@ function App() {
          <Route path='/general-register/recruiter' component={GeneralRegistrationRecruiter}/>
           <Route exact path='/recruiter-register' component={RecruiterRegistration}/>
           <Route path='/user-register' component={UserRegistration}/>
-          <Route path='/user-page' component={UserPage}/>
+          {/* <Route path='/user-page' component={UserPage}/> */}
           <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/edit-user' component={EditUser}/>
           {/* <Route path='/recruiter-page' component={RecruiterPage}/> */}
        </Router>
-    </DroomData.Provider>
   );
 }
 

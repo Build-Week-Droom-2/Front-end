@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth.js';
+import {connect} from 'react-redux'
 import CardMaker from './JobCard.js';
 import {Link} from 'react-router-dom';
 
-export default class JobPage extends React.Component {
+ class JobPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,5 +49,6 @@ export default class JobPage extends React.Component {
     }
 }
 
+export default JobPage
 /* comment
 comment*/

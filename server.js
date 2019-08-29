@@ -17,7 +17,7 @@ let users = [
   {
     id: 2,
     name: 'Greg',
-    email: 'gregj@yahoo.com'
+    email: 'gregj@yahoo.com',
   },
   {
     id: 3,

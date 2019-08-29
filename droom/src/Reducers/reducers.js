@@ -9,7 +9,7 @@ import {
     ADD_EDIT_SUCCESS,
     ADD_EDIT_FAILURE,
     REMOVE_LISTING
-  } from '../actions';
+  } from '../Actions/actions.js';
 
 const initialState = {
     data: [],

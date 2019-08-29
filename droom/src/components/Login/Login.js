@@ -4,7 +4,7 @@ import {axiosWithAuth} from '../utils/axiosWithAuth.js';
 import axios from 'axios'
 
 const Login = props => {
- 
+ console.log('login page props', props)
   const [user, setUser] = useState({
       email: '',
       password: ''
@@ -24,8 +24,8 @@ const Login = props => {
       .post('http://localhost:5000/api/login', user)
       .then(res => {
         localStorage.setItem('token', res.data.payload)
-        // props.history.push('/protected')
-        console.log('login page',res)
+        //props.history.push('/protected')
+        console.log('login page',res.config.data)
       })
       .catch(err => console.log('err in catch',err.response))
   }

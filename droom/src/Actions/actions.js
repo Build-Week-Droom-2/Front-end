@@ -1,4 +1,4 @@
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {axiosWithAuth} from '../components/utils/axiosWithAuth'
 
 export const FETCH_USER_DATA_START = 'FETCH_USER_DATA_START';
 export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA_SUCCESS';
@@ -16,11 +16,11 @@ export const ADD_EDIT_FAILURE = `ADD_EDIT_FAILURE`;
 
 
 
-export const getData = ()  => {
+export const getData = id => {
     return dispatch => {
         dispatch({type: FETCH_USER_DATA_START});
         axiosWithAuth()
-            .get('http://localhost:5000/api/users')
+            .get(`http://localhost:5000/api/users/${id}`)
             .then(res => {
                 console.log(res)
                 dispatch({ type: FETCH_USER_DATA_SUCCESS, payload: res.data })
@@ -34,17 +34,17 @@ export const deleteData = (removeID)  => {
     return dispatch => {
         dispatch({type: REMOVE_LISTING});
             axiosWithAuth()
-                .delete(`http://localhost:5000/api/${removeID}`)
+                .delete(`http://localhost:5000/api/users/${removeID}`)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
     }
 }
 
-export const addData = ()  => {
+export const addData = (values)  => {
     return dispatch => {
         dispatch({type: ADD_USER_START});
         axiosWithAuth()
-            .post(`http://localhost:5000/api/users`)
+            .post(`http://localhost:5000/api/users`, values)
             .then(res => {
                 dispatch({type: ADD_USER_SUCCESS})
                 console.log(res)}
@@ -56,11 +56,11 @@ export const addData = ()  => {
     }
 }
 
-export const editData = ()  => {
+export const editData = (id)  => {
     return dispatch => {
         dispatch({type: ADD_EDIT_START});
         axiosWithAuth()
-            .put(`http://localhost:5000/api/${editId}`, editId)
+            .put(`http://localhost:5000/api/users/${id}`)
             .then(res => {
                 dispatch({type: ADD_EDIT_SUCCESS})
                 console.log(res)}
