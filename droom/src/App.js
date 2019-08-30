@@ -14,6 +14,7 @@ import UserPage from './components/UserPage/UserPage';
 import RecruiterPage from './components/JobProfile/RecruiterPage';
 import EditRecruiter from './components/UserPage/EditRecruiter';
 import EditUser from './components/UserPage/EditUser';
+import UserMatches from './components/UserPage/UserMatches';   
 
 
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
           {/* <Route path='/user-page' component={UserPage}/> */}
           <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/edit-user' component={EditUser}/>
+          <PrivateRoute exact path='/protected/user-matches' component={UserMatches} />
           {/* <Route path='/recruiter-page' component={RecruiterPage}/> */}
        </Router>
   );

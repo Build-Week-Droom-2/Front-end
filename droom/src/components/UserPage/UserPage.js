@@ -54,8 +54,8 @@ class UserPage extends React.Component {
         return(
             <>
              {this.props.data && this.props.data.map(person => person.email === "droom@yahoo.com" && 
-            <div className='CardMaker'>
-                <CardMaker id = {person.id} name={person.name} title={person.title} exp={person.exp} edu={person.edu} skills={person.skills} />
+            <div className='CardMaker' id = {person.id}>
+                <CardMaker id = {person.id}  name={person.name} title={person.title} exp={person.exp} edu={person.edu} skills={person.skills} />
                 <div className='update'>
                     {/* <button>Edit</button> */}
                 </div>

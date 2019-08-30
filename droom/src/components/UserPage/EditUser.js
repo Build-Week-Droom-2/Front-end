@@ -57,9 +57,8 @@ const UserRegistration = ({person, setEditing, editData} ) => {
                 <Image src='https://picsum.photos/200' size='small' circular className="user-registration-avatar"/>
               </div>
       
-              <form className="form-component" onSubmit={handleSubmit}>
-      
-             
+              <Form className="form-component" onSubmit={handleSubmit}>
+    
                 <label>Name
                   <input component="input" type="text" name='name' value={user.name} placeholder="Name" onChange={handleChange} />
                 </label>
@@ -83,7 +82,7 @@ const UserRegistration = ({person, setEditing, editData} ) => {
                   <input name="skills" component="textarea" placeholder="Skills" value={user.skills} onChange={handleChange}/>
                 </label>
                 <Button type='submit' color="blue" >Edit</Button>
-              </form>
+              </Form>
           </div>
     
       )

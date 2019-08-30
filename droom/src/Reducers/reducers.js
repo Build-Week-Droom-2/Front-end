@@ -11,12 +11,14 @@ import {
     REMOVE_LISTING,
     FETCH_USER_UPDATED_DATA_START,
     FETCH_USER_UPDATED_DATA_SUCCESS,
+    FETCH_MATCHED_DATA_START,
+    FETCH_MATCHED_DATA_SUCCESS
 
   } from '../Actions/actions.js';
 
 const initialState = {
     data: [],
-    // updateData: [],
+    matched: [],
     isFetching: false,
     error: ''
 }
@@ -32,7 +34,7 @@ export const reducer = (state = initialState, action) => {
         case FETCH_USER_DATA_SUCCESS:
             return {
                 ...state,
-                isFetching: true,
+                isFetching: false,
                 data: action.payload
             }
         case FETCH_USER_DATA_FAILURE:
@@ -49,7 +51,7 @@ export const reducer = (state = initialState, action) => {
         case FETCH_USER_UPDATED_DATA_SUCCESS:
             return {
                 ...state,
-                isFetching: true,
+                isFetching: false,
                 data: action.payload
                 // updateData: action.payload
             }
@@ -91,8 +93,21 @@ export const reducer = (state = initialState, action) => {
         case REMOVE_LISTING:
             return {
                 ...state,
-                data: [...state.data],
+                data: action.payload,
+
                 error: ''
+            }
+        case FETCH_MATCHED_DATA_START :
+            return {
+                ...state,
+                isFetching: !state.isFetching,
+                error:''
+            }
+        case FETCH_MATCHED_DATA_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                matched: action.payload
             }
         
         default:
