@@ -1,34 +1,28 @@
 {
-    "user":[{
-        "id": 1,
-        "name":"James Dean",
-        "title":"Full Stack Web Developer",
-        "exp": "2 year of experience",
-        "edu": "Endorsed by Lambda School Full Stack Web Developer",
-        "skills": ["Bachelors in Computer Science", "Node and Java Experience", "2 years experience"]
-
-    },
-    {
-        "id": 2,
-        "name":"Racheal Jones",
-        "title":"Medical Assistant",
-        "exp": "1 year of experience as assistant in Hospital",
-        "edu": "Bachelor Degree and Medical License",
-        "skills": ["Medical License", "Fast-Paced environment experience", "Prior experience working in hospital"]
-
-    },
-    {
-        "id": 3,
-        "name":"Rebecca Dane",
-        "title":"Daycare Assistance",
-        "exp": "10 years of experience working with children",
-        "edu": "Previous Experience working at a daycare",
-        "skills": ["CPR Certified", "First Aid Certified"]
-
-    
-   
-    }
-
+    "user":[
+        {
+            "id": 1,
+            "name":"James Dean",
+            "title":"Full Stack Web Developer",
+            "exp": "2 year of experience",
+            "edu": "Endorsed by Lambda School Full Stack Web Developer",
+            "skills": ["Bachelors in Computer Science", "Node and Java Experience", "2 years experience"]
+        },
+        {
+            "id": 2,
+            "name":"Racheal Jones",
+            "title":"Medical Assistant",
+            "exp": "1 year of experience as assistant in Hospital",
+            "edu": "Bachelor Degree and Medical License",
+            "skills": ["Medical License", "Fast-Paced environment experience", "Prior experience working in hospital"]
+        },
+        {
+            "id": 3,
+            "name":"Rebecca Dane",
+            "title":"Daycare Assistance",
+            "exp": "10 years of experience working with children",
+            "edu": "Previous Experience working at a daycare",
+            "skills": ["CPR Certified", "First Aid Certified"]
+        }
     ]
-       
 }

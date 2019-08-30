@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Segment, Header, Icon, Modal, Button, } from 'semantic-ui-react';
+import jobs from '../../fakeData/jobs';
 
 const SplashPage = () => {
+  window.localStorage.setItem('jobs', JSON.stringify(jobs));
   return (
       <div className="splash-page">
           <div className="splash-page-top">

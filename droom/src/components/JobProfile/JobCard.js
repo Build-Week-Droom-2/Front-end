@@ -1,40 +1,50 @@
 import React, {useEffect, useState} from 'react';
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 function CardMaker(props){
-// console.log(props.name);
-// console.log(props.title);
-
-const [nameState, setNameState] = useState();
-const [companyState, setCompanyState]=useState();
-
-    useEffect(() => {
-        setNameState(props.name);
-        setCompanyState(props.title);
-    }, [])
 
 const editJob = () => {
-    return props.history.push('/edit-recruiter', {name: nameState, company: companyState});
-
+    return props.history.push('/edit-recruiter');
+}
+const jobListings = () => {
+    return props.history.push('/job-listings');
 }
 
+
+const employeesLocal = window.localStorage.getItem("employees");
+const employeesParse = JSON.parse(employeesLocal);
+const matchedEmployees = employeesParse.filter(emp=>{
+  if(emp["match"]=="False"){
+    return false;
+  }
+  return true;
+})
 
     return(
         <div className='userCard'>
             
             <div className="user-icons">
+                <Link to='/matches'>
                 <div className="match-icon">
                     <Popup content='View your matches' trigger={<Button circular icon="star" />} />
                 </div>
+                </Link>
+                <Link to='/job-listings'>
                 <Popup content='Job Listings' trigger={<Button circular icon="briefcase" />} />
-                <Popup content='Edit your profile' trigger={<Button onClick={editJob} circular icon="edit" />} />
+                </Link>
+                <Link to='/edit-recruiter'>
+                <Popup content='Edit your profile' trigger={<Button circular icon="edit" />} />
+                </Link>
+                <Link to='/employee-match'>
                 <Popup content='Search for employees' trigger={<Button circular icon="search plus" />} />
-                {/* Issues: Bottom part of circular button doesn't register as button when hovering */}
+                </Link>
             </div>
 
             <div className='match-number'>
-                <Popup content='View your matches' trigger={<Label as='a' circular color="pink">11</Label>} />
-                {/* Toss in props to this number. Props = matches.length */}
+                <Link to='matches'>
+                <Popup content='View your matches' trigger={<Label as='a' circular color="pink">{matchedEmployees.length}</Label>} />
+                </Link>
             </div>
 
             <h1 className='userName'>{props.name}</h1>
@@ -42,22 +52,9 @@ const editJob = () => {
             <p>Talent Recruiter</p>
             <h2 className='userJob'>{props.title}</h2>
             
-            {/* <label className='labels'>
-                <h3>Experience</h3>
-            <p className='exp userP'>{props.exp}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
-            </label>
-            <label className='labels'>
-                <h3>Education</h3>
-            <p className='edu userP'>{props.edu}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
-            </label>
-            <label className='labels'>
-                <h3>Skills</h3>
-            <p className='skills userP'>{props.skills}Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut blanditiis ipsa, quis illo nihil aperiam, veritatis fuga quia perspiciatis maxime suscipit molestiae molestias at iste dolor facere, accusantium cumque amet.</p>
-            </label> */}
         </div>
     );
 }
 
 export default CardMaker;
-/*comment */
 

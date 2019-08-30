@@ -1,0 +1,44 @@
+import React from 'react';
+
+
+
+    "jobs":[
+    {
+        "id": 1,
+        "name": "Dolphin Photographer",
+        "zipcode":"33224",
+        "company": "Marine Bio Industries"
+
+    },
+    {
+        "id": 2,
+        "name": "Marine Biologist",
+        "zipcode":"33098",
+        "company": "Marine Bio Industries"
+
+    },
+    {
+        "id": 3,
+        "name": "Water Quality Technician",
+        "zipcode":"33888",
+        "company": "Marine Bio Industries"
+
+    },
+    {
+        "id": 4,
+        "name": "Dolphin Psychologist",
+        "zipcode":"33808",
+        "company": "Marine Bio Industries"
+
+    },
+    {
+        "id": 5,
+        "name": "General Labor",
+        "zipcode":"33888",
+        "company": "Marine Bio Industries"
+
+    }
+
+]
+
+   
