@@ -16,7 +16,7 @@ import EditRecruiter from './components/UserPage/EditRecruiter';
 import EditUser from './components/UserPage/EditUser';
 import JobListings from './components/JobProfile/JobListings.js';
 import JobEdit from './components/JobProfile/JobEdit.js';
-
+import UserMatches from './components/UserPage/UserMatches';   
 import RecruiterMatch from './components/JobProfile/RecruiterMatch.js'
 import EmployeeMatch from './components/Matches/EmployeeMatch.js';
 import JobPosting from './components/JobProfile/JobPosting';
@@ -47,6 +47,7 @@ function App() {
           {/* <Route path='/user-page' component={UserPage}/> */}
           <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/edit-user' component={EditUser}/>
+          <PrivateRoute exact path='/protected/user-matches' component={UserMatches} />
           {/* <Route path='/recruiter-page' component={RecruiterPage}/> */}
           <Route path='/job-listings' component={JobListings} />
           <Route path='/job-posting' component={JobPosting} />
