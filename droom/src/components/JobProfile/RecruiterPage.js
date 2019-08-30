@@ -14,6 +14,7 @@ import jobs from '../../fakeData/jobs';
     }
        
     render() {
+
         const recruiter = window.localStorage.getItem("recruiter");
         const recParse = JSON.parse(recruiter);
         const name = recParse.name;

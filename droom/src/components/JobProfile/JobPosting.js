@@ -5,23 +5,22 @@ import * as Yup from "yup";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const CompanyRegistration = ({errors,touched,values,status, handleSubmit}) => {
+const CompanyRegistration = ({errors,touched,values,status, handleSubmit, history}) => {
   const [user,setUser] = useState();
 
   const jobsLocal = window.localStorage.getItem("jobs");
   const jobsParse = JSON.parse(jobsLocal);
-  // console.log(jobsParse);
 
   useEffect(() => {
-
       if (status) {
         setUser(status);
       }
     }, [status]);
 
     if (user) {
-      console.log(user);
-      // jobsParse.push(user)
+      jobsParse.push(user)
+      window.localStorage.setItem('jobs', JSON.stringify(jobsParse));
+      history.push('/job-listings');
     }
 
   return(

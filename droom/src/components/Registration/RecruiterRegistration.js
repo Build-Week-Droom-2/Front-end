@@ -16,6 +16,8 @@ const RecruiterRegistration = ({errors,touched,values,status, handleSubmit}) => 
 
   if (user) {
     window.localStorage.setItem('recruiter', JSON.stringify(user));
+    window.localStorage.setItem('jobs', JSON.stringify([]));
+      window.localStorage.setItem('employees', JSON.stringify([]));
     user.history.push('/recruiter-page', {name: user.name, zip: user.zip, company:user.company});
   }
 

@@ -4,12 +4,12 @@ import {axiosWithAuth} from '../utils/axiosWithAuth.js';
 import axios from 'axios'
 import recruiter from '../../fakeData/recruiter';
 import jobs from '../../fakeData/jobs';
+import employees from '../../fakeData/employees';
 
 const Login = props => {
   const [user, setUser] = useState({
       email: '',
       password: ''
-    
   })
 
   const handleChange = e => {
@@ -24,6 +24,7 @@ const Login = props => {
     if(user.email=="jobs@jobs.com" && user.password=="jobs@jobs.com"){
       window.localStorage.setItem('recruiter', JSON.stringify(recruiter));
       window.localStorage.setItem('jobs', JSON.stringify(jobs));
+      window.localStorage.setItem('employees', JSON.stringify(employees));
       props.history.push('/recruiter-page')
     } else {
 

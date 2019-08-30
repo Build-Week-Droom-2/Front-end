@@ -12,6 +12,15 @@ const jobListings = () => {
 }
 
 
+const employeesLocal = window.localStorage.getItem("employees");
+const employeesParse = JSON.parse(employeesLocal);
+const matchedEmployees = employeesParse.filter(emp=>{
+  if(emp["match"]=="False"){
+    return false;
+  }
+  return true;
+})
+
     return(
         <div className='userCard'>
             
@@ -30,12 +39,12 @@ const jobListings = () => {
                 <Link to='/employee-match'>
                 <Popup content='Search for employees' trigger={<Button circular icon="search plus" />} />
                 </Link>
-                {/* Issues: Bottom part of circular button doesn't register as button when hovering */}
             </div>
 
             <div className='match-number'>
-                <Popup content='View your matches' trigger={<Label as='a' circular color="pink">2</Label>} />
-                {/* Toss in props to this number. Props = matches.length */}
+                <Link to='matches'>
+                <Popup content='View your matches' trigger={<Label as='a' circular color="pink">{matchedEmployees.length}</Label>} />
+                </Link>
             </div>
 
             <h1 className='userName'>{props.name}</h1>
@@ -48,5 +57,4 @@ const jobListings = () => {
 }
 
 export default CardMaker;
-/*comment */
 

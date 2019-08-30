@@ -5,7 +5,7 @@ import React from 'react';
         "id": 1,
         "name": "Rick Sanchez",
         "zipcode":"999999",
-        "company": "Rick and Morty"
+        "company": "Morty Enterprises"
     }
 
 
