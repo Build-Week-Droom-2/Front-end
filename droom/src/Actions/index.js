@@ -4,6 +4,7 @@ export {
     deleteData,
     editData,
     getUpdate,
+    getMatched,
     FETCH_USER_DATA_START,
     FETCH_USER_DATA_SUCCESS,
     FETCH_USER_DATA_FAILURE,
@@ -15,5 +16,7 @@ export {
     ADD_EDIT_START,
     ADD_EDIT_SUCCESS,
     ADD_EDIT_FAILURE,
-    REMOVE_LISTING
+    REMOVE_LISTING,
+    FETCH_MATCHED_DATA_START,
+    FETCH_MATCHED_DATA_SUCCESS,
 } from "./actions.js"

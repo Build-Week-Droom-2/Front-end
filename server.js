@@ -7,7 +7,7 @@ const token =
   'aekkd432KldskJGHDK54Jslsk4d3KjfvjeingKLLdale94kdn3n5kd02dk3KsLL24lsK03Kl';
 let nextId = 4;
 let users = 
-{
+[{
       id: 1,
       name: 'Chris',
       email: 'droom@yahoo.com', 
@@ -21,19 +21,19 @@ let users =
         {id:2, company: 'LyftLambd', position:'Driver', title:'recruiterName'},
         {id:3, company: 'McDonalds', position:'Milkshake maker', title:'recruiterName'}
       ]
-}
+}]
    
   
-  // let matched = [
-  //   {id:4, company: 'Uber', position:'Driver', title:'recruiterName'},
-  //   {id:5, company: 'LyftLambd', position:'Driver', title:'recruiterName'},
-  //   {id:6, company: 'McDonalds', position:'Milkshake maker', title:'recruiterName'}
-  // ]
+  let matched = [
+    {id:4, company: 'Uber', position:'Driver', title:'Jon Doe'},
+    {id:5, company: 'Lambda', position:'Computer Programmer', title:'Jane Doe'},
+    {id:6, company: 'McDonalds', position:'Milkshake maker', title:'Jon Doe'}
+  ]
 app.use(bodyParser.json());
 app.use(cors());
 function authenticator(req, res, next) {
   const { authorization } = req.headers;
-  if (authorization === token) {
+  if (authorization === token) { 
     next();
   } else {
     res.status(403).json({ error: 'User must first login' });
@@ -65,6 +65,23 @@ app.get('/api/users/:id', authenticator, (req, res) => {
     res.status(404).send({ msg: 'Unable to locate the user' });
   }
 });
+
+
+app.get('/api/matched', authenticator, (req, res) => {
+  setTimeout(() => {
+    res.send(matched);
+  }, 1000);
+});
+app.get('/api/matched/:id', authenticator, (req, res) => {
+  const matched = matched.find(u => u.id == req.params.id);
+  if (matched) {
+    res.status(200).json(matched);
+  } else {
+    res.status(404).send({ msg: 'Unable to locate the user' });
+  }
+});
+
+
 app.post('/api/users', authenticator, (req, res) => {
   const user = { id: getNextId(), ...req.body };
   users = [...users, user];
@@ -85,10 +102,10 @@ app.put('/api/users/:id', authenticator, (req, res) => {
     res.status(404).send({ msg: 'Unable to locate the user' });
   }
 });
-app.delete('/api/user/:id', authenticator, (req, res) => {
+app.delete('/api/matched/:id', authenticator, (req, res) => {
   const { id } = req.params;
-  users = users.filter(u => u.id !== Number(id));
-  res.send(users);
+  matched = matched.filter(u => u.id !== Number(id));
+  res.send(matched);
 });
 function getNextId() {
   return nextId++;

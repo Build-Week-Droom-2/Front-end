@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {deleteData} from '../../Actions'
+import {deleteData, getMatched} from '../../Actions'
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,6 +26,13 @@ const useStyles = makeStyles({
       marginBottom: 12,
       fontSize: "1.4rem"
     },
+    container: {
+        width: "450px",
+        display: "flex",
+        justifyContent: "center",
+        marginLeft: "25px",
+        marginTop: "10px"
+    }
   });
 
 const Job = (props) => {
@@ -33,9 +40,10 @@ const Job = (props) => {
 
     const deleteJob = () => {
         props.deleteData(props.job.id);
+        props.getMatched()
     }
     return ( 
-        <div>
+        <div className={classes.container}>
         <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -57,5 +65,8 @@ const Job = (props) => {
       </div>
      );
 }
+
+
+
 //    
-export default connect(null, {deleteData})(Job);
+export default connect(null, {deleteData, getMatched})(Job);

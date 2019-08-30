@@ -3,37 +3,57 @@ import { Button, Form, Icon } from 'semantic-ui-react';
 import {connect} from 'react-redux'
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 import Job from '../UserPage/Job.js';
-import {getData} from "../../Actions/actions.js"
+import {getMatched} from "../../Actions/actions.js"
+import Loader from "react-loader-spinner";
 
 const UserMatches = (props) => {
  const [jobs, setJobs] = useState([])
+
+
   useEffect(() => {
-     props.getData()
+     props.getMatched()
+     setJobs(props.matched)
   }, [])
-console.log(props.data)
+
+  const handleClick = () => {
+    props.history.push("/protected"); 
+
+  }
+  
+ console.log(props.matched)
+console.log(props)
+    
     return ( 
         <div className="job-listing">
-            <Button animated color="green">
+          <Button onClick={handleClick} animated color="green">
           <Button.Content visible>Back</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>
         </Button>
         <p>Matched Positions </p>
-        {(props.data.name === 'Chris')
-          && props.data.matchedJobs.map(job=>{
-          return <Job key ={job} job={job} />
-        })}
-        <Button color="purple" className="new-job-btn">Create New Job</Button>
-        </div>
+        {props.isFetching ? (
+         <Loader
+           type="BallTriangle"
+           color="#22ba45"
+           height={100}
+           width={100}
+         />
+       ) : (
+        props.matched.map(job=>{
+          return <Job key ={job.id} job={job} />
+        })
+       )} 
+      </div>
      );
 }
-
+ 
 const mapStateToProps = state => {
   // console.log('state',state)
   return {
-      data: state.data,
+      isFetching: state.isFetching,
+      matched: state.matched,
   }
 }
  
-export default connect(mapStateToProps, {getData})(UserMatches);
+export default connect(mapStateToProps, {getMatched})(UserMatches);

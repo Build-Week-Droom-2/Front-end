@@ -17,6 +17,9 @@ export const ADD_EDIT_START = `ADD_EDIT_START`;
 export const ADD_EDIT_SUCCESS = `ADD_EDIT_SUCCESS`;
 export const ADD_EDIT_FAILURE = `ADD_EDIT_FAILURE`;
 
+export const FETCH_MATCHED_DATA_START = `FETCH_MATCHED_DATA_START`;
+export const FETCH_MATCHED_DATA_SUCCESS = `FETCH_MATCHED_DATA_SUCCESS`;
+
 
 
 export const getData = () => {
@@ -45,12 +48,25 @@ export const getUpdate = () => {
     }
 }
 
+export const getMatched = () => {
+    return dispatch => {
+        dispatch({type: FETCH_MATCHED_DATA_START});
+        axiosWithAuth()
+            .get(`http://localhost:5000/api/matched/`)
+            .then(res => {
+                console.log('it is running over and over',res)
+                dispatch({ type: FETCH_MATCHED_DATA_SUCCESS, payload: res.data })
+            })
+            .catch(err => console.log(err))
+    }
+}
+
 
 export const deleteData = (removeID)  => {
     return dispatch => {
         dispatch({type: REMOVE_LISTING});
             axiosWithAuth()
-                .delete(`http://localhost:5000/api/users/${removeID}`)
+                .delete(`http://localhost:5000/api/matched/${removeID}`)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
     }
