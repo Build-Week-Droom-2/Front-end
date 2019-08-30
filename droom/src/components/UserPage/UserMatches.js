@@ -9,14 +9,14 @@ import Loader from "react-loader-spinner";
 const UserMatches = (props) => {
  const [jobs, setJobs] = useState([])
 
-
+console.log('props in usermatches', props)
   useEffect(() => {
      props.getMatched()
      setJobs(props.matched)
   }, [])
 
   const handleClick = () => {
-    props.history.push("/protected"); 
+    props.history.goBack(); 
 
   }
   
