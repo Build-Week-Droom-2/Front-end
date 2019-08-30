@@ -31,25 +31,7 @@ class UserPage extends React.Component {
             this.props.getUpdate()
         }
     }
-    //stateData = () => {this.setState(this.props.data)}
-    
-    // componentWillReceiveProps(newProps) {
-        //     if(this.props.match.params.id !== newProps.match.params.id) {
-            //         this.fetchMovie(newProps.match.params.id);
-            //     }
-            // }
-            
-            // fetchPerson = id => {
-                //     axios.get('userprofile')
-                //     .then(res => this.setState({person: res.data}))
-                //     .catch(err => console.log(err.response));
-                // }
-                render() {
-                    // console.log('in user page',this.props.location.state);
-        // const {name, skills, title, experience, education} = this.props.location.state;
-        // if(!this.state.person) {
-        //     return <div>Loading User Profile</div>
-        // }
+    render() {
         console.log(this.props.data)
         return(
             <>

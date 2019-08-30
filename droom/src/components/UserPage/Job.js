@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {deleteData, getMatched} from '../../Actions'
+import {deleteData, getMatched, getData} from '../../Actions'
 import { Image, Icon, Button, Popup, Label } from 'semantic-ui-react';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -41,6 +41,7 @@ const Job = (props) => {
     const deleteJob = () => {
         props.deleteData(props.job.id);
         props.getMatched()
+        props.getData()
     }
     return ( 
         <div className={classes.container}>
@@ -69,4 +70,4 @@ const Job = (props) => {
 
 
 //    
-export default connect(null, {deleteData, getMatched})(Job);
+export default connect(null, {deleteData, getMatched, getData})(Job);
