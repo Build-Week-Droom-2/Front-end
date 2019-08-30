@@ -8,30 +8,15 @@ import Loader from "react-loader-spinner";
 
 
 function CardMaker(props){
-    console.log('this is running',props)
-    //const [propsInfo, setPropsInfo]= useState();
-    //setPropsInfo(props)
+
     const [editing, setEditing] = useState(false)
     const [editedInfo, setEditedInfo] = useState();
-    //const [info, setInfo] = useState();
-
-// useEffect(() => {
-  
-// }, [])
 
     const editUser = e => {
         e.preventDefault()
         setEditing(true)
-
     }
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     setEditing(false)
-    // }
 
-    // const handleChange = () => {
-        
-    // }
     if(!editing){
         return(
             <div className='userCard'>
@@ -43,12 +28,11 @@ function CardMaker(props){
     
                     <Popup content='Edit your profile' trigger={<Button circular icon="edit" onClick={editUser}/>} />
                     <Popup content='Search for jobs' trigger={<Button circular icon="search plus" />} />
-                    {/* Issues: Bottom part of circular button doesn't register as button when hovering */}
                 </div>
 
                 <div className='match-number'>
                     <Popup content='View your matches' trigger={<Label as='a' circular color="pink">11</Label>} />
-                    {/* Toss in props to this number. Props = matches.length */}
+
                 </div>
                
                 {props.isFetching ? (
@@ -74,7 +58,7 @@ function CardMaker(props){
                     </label>
                     <label className='labels'>
                         <h3>Skills</h3>
-                    <div className='skills userP'>{props.skills.map(skill =><div> <p key={skill}>{skill}</p></div>)}</div>
+                    <div className='skills userP'>{(props.skills) ? (props.skills.map(skill =><div> <p key={skill}>{skill}</p></div>)) : (null)}</div>
                     </label>
                 </>
                 )}

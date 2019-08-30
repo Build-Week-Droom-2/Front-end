@@ -3,7 +3,7 @@ import { Button, Form, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import { Link, withRouter } from "react-router-dom";
 import {connect} from 'react-redux'
-import {addData} from "../../Actions/actions.js"
+import {addData, getData} from "../../Actions/actions.js"
 import * as Yup from "yup";
 import axios from 'axios';
 import GeneralRegistrationSplash from './GeneralRegistrationSplash';
@@ -19,10 +19,6 @@ const GeneralRegistration = ({errors,touched,values,status, handleSubmit}) => {
       }
     }, [status]);
 
-  if (user) {
-
-
-  }
   if(!modal){
     return(
       <div className="general-registration">
@@ -99,32 +95,18 @@ const FormikLoginForm = withFormik({
   //======END VALIDATION SCHEMA==========
   
   handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
-    // console.log('values in GR',values);
-    // const {history} = props;
-    // console.log(props);
-    // console.log(history);
-    // console.log("Submit function running");
-    //Check if email exists
-    //axios post here
+  
     console.log('inside handlesubmit', values)
     props.addData(values)
-    props.history.push('/protected')
-    // axios
-    //   .post("http://localhost:5000/api/users", values)
-    //   .then(res => {
-    //     //   console.log(res);
-    //     const {name,email,password,confirm, id} = res.data
-    //     setSubmitting(false);
-    //     setStatus({ name: name, email: email, password:password, confirm:confirm, account: 2, id:id });
-    //     resetForm();
-    //   }, {...props});
+    props.history.push('/protected/user-register')
+    props.getData()
   }
 })(GeneralRegistration);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
-  addData
+  addData , getData
 }, dispatch));
 
 const RouterFormik = connect(null, mapDispatchToProps)(FormikLoginForm)
 const RouterFormik2 = withRouter(RouterFormik)
-export default RouterFormik;
+export default RouterFormik2;

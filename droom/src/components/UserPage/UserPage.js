@@ -9,55 +9,61 @@ import {Link} from 'react-router-dom';
 class UserPage extends React.Component {
     constructor(props) {
         super(props);
-        console.log("up top" + this.props)
+        console.log(this.props)
         this.state = {
-            person: []
+            visible: false
         };
-        console.log('state in UP',this.state.person)
     }
     
 
     componentDidMount() {
-        console.log('component did mount');
-    return this.props.getData()
-     
+        return this.props.getData()
     }
     
     
     componentDidUpdate (prevProps) {
-        console.log('prev',prevProps.data[0])
         if(prevProps.data[0] === this.props.data[0]){
-
             this.props.getUpdate()
         }
     }
-    render() {
-        console.log(this.props.data)
-        return(
-            <>
-             {this.props.data && this.props.data.map(person => person.email === "droom@yahoo.com" && 
-            <div className='CardMaker' id = {person.id}>
-                <CardMaker id = {person.id}  name={person.name} title={person.title} exp={person.exp} edu={person.edu} skills={person.skills} />
-                <div className='update'>
-                    {/* <button>Edit</button> */}
-                </div>
-            </div>)}
-            </>
-        );
-    }
-}
+    render() 
+        {
+            return(
+                <>
+                    {this.props.data && this.props.data.map(person => {
+                        console.log(this.props.data.length)
+                        if(this.props.data.length !== 1 ){
+                            if(person.email !== 'droom@yahoo.com'){
+                                return (
+                                    <div className ='CardMaker'>
+                                        <CardMaker key={person.id} id = {person.id}  name={person.name} title={person.title} exp={person.exp} edu={person.edu} skills={person.skills} />
+                                        <div className='update'></div>
+                                    </div>
+                                )
+                            }
+                        } else {
+                            return (
+                                <div className ='CardMaker'>
+                                    <CardMaker key={person.id} id = {person.id}  name={person.name} title={person.title} exp={person.exp} edu={person.edu} skills={person.skills} />
+                                <div className='update'></div>
+                                </div>
+                            )
+                        }
+                    })}
+                </>
+            )
+        }
+}  
+ 
+
 const mapStateToProps = state => {
     console.log('state',state)
     return {
         data: state.data,
-        //updateData: state.updateData
     }
 }
 
 export default connect(mapStateToProps, {getData,getUpdate})(UserPage)
-/* how this will work
-display name and stuff
-have button that goes to matches
-have button to edit
-have button to sign out 
-*/
+
+
+

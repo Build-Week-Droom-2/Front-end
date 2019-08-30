@@ -43,7 +43,7 @@ function App() {
          )}/>
          <Route path='/general-register/recruiter' component={GeneralRegistrationRecruiter}/>
           <Route exact path='/recruiter-register' component={RecruiterRegistration}/>
-          <Route path='/user-register' component={UserRegistration}/>
+          <PrivateRoute path='/protected/user-register' component={UserRegistration}/>
           {/* <Route path='/user-page' component={UserPage}/> */}
           <Route path='/edit-recruiter' component={EditRecruiter}/>
           <Route path='/edit-user' component={EditUser}/>

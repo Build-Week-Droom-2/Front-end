@@ -2,30 +2,21 @@ import React, {useState, useEffect} from 'react';
 import { Button, Form, Image, Icon } from 'semantic-ui-react';
 import {Field, withFormik} from 'formik';
 import {connect} from 'react-redux'
-import {addData} from "../../Actions/actions.js"
+import {getUpdate, getData} from "../../Actions/actions.js"
 import {withRouter} from "react-router-dom";
 import * as Yup from "yup";
-import axios from 'axios';
-import Userpage from '../UserPage/UserPage'
+import { bindActionCreators } from 'redux';
 
-const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
+const UserRegistration = ({errors,touched,values,status, handleSubmit}, props) => {
   const [user,setUser] = useState();
-  // const [visible, setVisible] = useState(false);
+  console.log('here', props.data)
 
   useEffect(() => {
       if (status) {
         setUser(status);
-        // setVisible(true)
       }
     }, [status]);
 
-    // if (user) {
-    //   user.history.push('/user-page', {name: user.name, url:user.zip, title:user.title, experience:user.experience, education:user.education,skills:user.skills});
-    //   console.log(user);
-    // }
-
-  //  user && user.map(user => user.history.push('/user-page'), {name: user.name})
-    // if(!visible){
       return(
         <div className="user-registration">
             <Button animated color="green">
@@ -43,11 +34,6 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
             </div>
     
             <Form className="form-component">
-    
-              {touched.name && errors.name && <p>{errors.name}</p>}
-              <label>Name
-                <Field component="input" type="text" name="name" placeholder="Name" />
-              </label>
     
               {touched.zip && errors.zip && <p>{errors.zip}</p>}
               <label>Zip Code
@@ -78,16 +64,12 @@ const UserRegistration = ({errors,touched,values,status, handleSubmit}) => {
         </div>
       )
     } 
-    // if(visible){
-    //   return(user && user.map(user => <Userpage user={user}/>))
-    // }
-// }
+
 
 
 const FormikLoginForm = withFormik({
   mapPropsToValues({ name, zip, title, experience, education, skills }) {
     return {
-      name: name || "",
       zip: zip || "",
       title: title || "",
       experience: experience || "",
@@ -98,8 +80,6 @@ const FormikLoginForm = withFormik({
   
   //======VALIDATION SCHEMA==========
   validationSchema: Yup.object().shape({
-    name: Yup.string()
-      .required("Name Required"),
     zip: Yup.string()
       .required("Zip Code Required"),
     title: Yup.string()
@@ -115,22 +95,18 @@ const FormikLoginForm = withFormik({
   
   handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus, props }) {
     const {history} = props;
-    console.log("Submit function running");
-    //history.push('/user-page')
-    //Check if email exists
-    //axios post here
-    addData(values)
-    // axios
-    //   .post("http://localhost:5000/api/users", values)
-    //   .then(res => {
-    //     const {name,zip,title,experience,education,skills} = res.data
-    //     setSubmitting(false);
-    //     // setStatus({ name: name, zip: zip, title:title, experience:experience, education:education,skills:skills, history: history });
-    //     resetForm();
-      // });
+    history.push('/protected')
+    props.getData()
+    props.getUpdate(4, values)
   }
 })(UserRegistration);
 
-const RouterFormik = connect(null, {addData})(FormikLoginForm)
+const mapDispatchToProps = dispatch => (bindActionCreators({
+  getUpdate , getData
+}, dispatch));
 
-export default RouterFormik;
+
+
+const RouterFormik = connect(null, mapDispatchToProps)(FormikLoginForm)
+const RouterFormik2 = withRouter(RouterFormik)
+export default RouterFormik2;
